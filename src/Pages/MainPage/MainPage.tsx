@@ -37,10 +37,10 @@ const MainPage: React.FC = () => {
         </Paper>
       </Grid>
       <Grid item>
-      <Link to="/searchresult">
+      <Link to="/searchresult" style={{ textDecoration: 'none', color: 'inherit' }}>
         <Paper elevation={3} style={boxStyle}>
-          게임검색하기
-          <img src={searchLogo} alt="Search Game Logo" style={logoStyle} />
+        게임검색하기
+        <img src={searchLogo} alt="Search Game Logo" style={logoStyle} />
         </Paper>
       </Link>
       </Grid>

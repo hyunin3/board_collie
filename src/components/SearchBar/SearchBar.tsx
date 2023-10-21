@@ -1,33 +1,57 @@
 import React, { useState } from 'react';
-import { InputBase, IconButton } from '@mui/material';
+import { TextField, Grid, Button } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
-interface SearchBarProps {
-  onSearch: (term: string) => void;
+interface Props {
+  onSearch: (query: string) => void;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
-  const [searchTerm, setSearchTerm] = useState("");
+const SearchBar: React.FC<Props> = ({ onSearch }) => {
+  const [inputValue, setInputValue] = useState("");
+  const [isFocused, setIsFocused] = useState(false);
 
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setSearchTerm(value);
-    onSearch(value); // 사용자가 검색어를 입력할 때마다 부모 컴포넌트에 알림
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleSearchClick = () => { 
+    onSearch(inputValue);
   };
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
-      <InputBase
-        placeholder="Search…"
-        value={searchTerm}
-        onChange={handleSearchChange}
-        style={{ paddingLeft: '10px' }}
-      />
-      <IconButton>
-        <SearchIcon />
-      </IconButton>
-    </div>
+    <Grid container justifyContent="center" alignItems="center" spacing={2} style={{ marginBottom: '20px' }}>
+      <Grid item xs={5}>
+        <TextField
+          fullWidth
+          variant="outlined"
+          placeholder="제목이나 태그를 입력해주세요"
+          InputProps={{
+            endAdornment: <SearchIcon  style={{ marginRight: '10px' }} />,
+            sx: {
+              height: '6vh',
+              borderRadius: '30px',
+              backgroundColor: isFocused ? 'white' : '#e7e7e7',
+            },
+          }}
+          sx={{
+            "& .MuiOutlinedInput-notchedOutline": {
+              border: isFocused ? "" : 'none',
+              height: '6vh',
+            },
+          }}
+          value={inputValue}
+          onChange={handleInputChange}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
+        />
+      </Grid>
+      <Grid item xs={2}>
+        <Button variant="contained" color="primary" onClick={handleSearchClick}>
+          검색
+        </Button>
+      </Grid>
+    </Grid>
   );
-}
+};
 
 export default SearchBar;
