@@ -1,19 +1,32 @@
-// components/SearchBar.tsx
-import React from 'react';
-import { InputBase, Paper, IconButton } from '@mui/material';
+import React, { useState } from 'react';
+import { InputBase, IconButton } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
-const SearchBar: React.FC = () => {
+interface SearchBarProps {
+  onSearch: (term: string) => void;
+}
+
+const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setSearchTerm(value);
+    onSearch(value); // 사용자가 검색어를 입력할 때마다 부모 컴포넌트에 알림
+  };
+
   return (
-    <Paper component="form" sx={{ display: 'flex', alignItems: 'center', padding: '2px 4px', maxWidth: 400 }}>
+    <div style={{ display: 'flex', alignItems: 'center' }}>
       <InputBase
-        sx={{ ml: 1, flex: 1 }}
-        placeholder="보드게임 검색"
+        placeholder="Search…"
+        value={searchTerm}
+        onChange={handleSearchChange}
+        style={{ paddingLeft: '10px' }}
       />
-      <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
+      <IconButton>
         <SearchIcon />
       </IconButton>
-    </Paper>
+    </div>
   );
 }
 

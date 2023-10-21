@@ -3,6 +3,7 @@ import recommendLogo from '../../assets/recommendLogo.png';
 import searchLogo from '../../assets/searchLogo.png';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
+import { Link } from 'react-router-dom';
 
 const MainPage: React.FC = () => {
   const boxStyle: React.CSSProperties = {
@@ -36,10 +37,12 @@ const MainPage: React.FC = () => {
         </Paper>
       </Grid>
       <Grid item>
+      <Link to="/searchresult">
         <Paper elevation={3} style={boxStyle}>
           게임검색하기
           <img src={searchLogo} alt="Search Game Logo" style={logoStyle} />
         </Paper>
+      </Link>
       </Grid>
     </Grid>
   );
