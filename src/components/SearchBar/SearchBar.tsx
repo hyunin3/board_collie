@@ -20,7 +20,7 @@ const SearchBar: React.FC<Props> = ({ onSearch }) => {
 
   return (
     <Grid container justifyContent="center" alignItems="center" spacing={2} style={{ marginBottom: '20px' }}>
-      <Grid item xs={5}>
+      <Grid item xs={4}>
         <TextField
           fullWidth
           variant="outlined"

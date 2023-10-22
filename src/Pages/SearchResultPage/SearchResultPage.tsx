@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { Divider } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 type Game = {
   name: string;
@@ -90,13 +91,18 @@ const SearchResultsPage: React.FC = () => {
         <div>
           {results.map((item, index) => (
             <div key={item.name}>
-              <h3>{item.name}</h3>
+              <h3>
+                <Link to={`/game/${item.name}`}   
+                style={{ textDecoration: 'none', color: 'inherit' }}>
+                {item.name}
+                </Link>
+              </h3>
               <ul>
                 {item.tags.map(tag => (
                   <li key={tag}>{tag}</li>
                 ))}
               </ul>
-              {index !== results.length - 1 && <Divider />}
+              {index < results.length - 1 && <Divider />}
             </div>
           ))}
         </div>
