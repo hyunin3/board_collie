@@ -31,6 +31,7 @@ const SearchBar: React.FC<Props> = ({ onSearch }) => {
               height: '6vh',
               borderRadius: '30px',
               backgroundColor: isFocused ? 'white' : '#e7e7e7',
+              fontFamily: 'Jua, sans-serif',
             },
           }}
           sx={{
@@ -46,7 +47,17 @@ const SearchBar: React.FC<Props> = ({ onSearch }) => {
         />
       </Grid>
       <Grid item xs={2}>
-        <Button variant="contained" color="primary" onClick={handleSearchClick}>
+      <Button 
+          variant="contained" 
+          onClick={handleSearchClick}
+          sx={{
+            borderRadius: '15px', 
+            backgroundColor: '#FDCD51',
+            fontFamily: 'Jua, sans-serif',
+            paddingX: '30px',
+            color: 'black',
+          }}
+        >
           검색
         </Button>
       </Grid>

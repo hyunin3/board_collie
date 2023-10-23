@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import SearchBar from '../../components/SearchBar/SearchBar';
-import { Divider } from '@mui/material';
+import { Divider, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
+import './SearchResultPage.css';
 
 type Game = {
   name: string;
@@ -55,7 +56,7 @@ const dummyData: Game[] = [
 
 
 const SearchResultsPage: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  
   const [results, setResults] = useState<Game[]>([]);
 
 
@@ -85,28 +86,42 @@ const SearchResultsPage: React.FC = () => {
   return (
     <div>
       <SearchBar onSearch={handleSearch} />
-      {results.length === 0 ? (
-        <div style={centerStyle}>검색결과가 없습니다.</div>
-      ) : (
-        <div>
-          {results.map((item, index) => (
-            <div key={item.name}>
-              <h3>
-                <Link to={`/game/${item.name}`}   
-                style={{ textDecoration: 'none', color: 'inherit' }}>
+      <Grid container spacing={2}>
+  <Grid item xs={9}>
+    {/* 검색 결과를 보여주는 부분 */}
+    {results.length === 0 ? (
+      <div style={centerStyle}>검색 결과가 없습니다.</div>
+    ) : (
+      <div>
+        {results.map((item, index) => (
+          <div key={item.name}>
+            <h3>
+              <Link to={`/game/${item.name}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                 {item.name}
-                </Link>
-              </h3>
-              <ul>
-                {item.tags.map(tag => (
-                  <li key={tag}>{tag}</li>
-                ))}
-              </ul>
-              {index < results.length - 1 && <Divider />}
-            </div>
-          ))}
-        </div>
-      )}
+              </Link>
+            </h3>
+            <ul>
+              {item.tags.map(tag => (
+                <li key={tag}>{tag}</li>
+              ))}
+            </ul>
+            {index < results.length - 1 && <Divider />}
+          </div>
+        ))}
+      </div>
+    )}
+  </Grid>
+  <Grid item container xs={3} style={{ alignItems: 'flex-start' }}>
+    <Divider orientation="vertical" flexItem sx={{  height: '100%' }} />
+    <Grid item xs style={{ overflowY: 'auto' }} className="hide-scrollbar">
+      <div style={{ textAlign: 'center' }}>
+        <h4>최근 본 게임</h4>
+        {/* 여기에 최근 본 게임 리스트를 추가 */}
+      </div>
+    </Grid>
+  </Grid>
+</Grid>
+
     </div>
   );
 }
