@@ -47,8 +47,8 @@ const MainPage: React.FC = () => {
     fontFamily: 'Jolly Lodger, cursive',
     textAlign: 'center',
     color: '#333',
-    fontSize: '1.5rem',
-    marginTop: '20px',
+    fontSize: '2.5rem',
+    marginTop: '10px',
   };
 
   return (
