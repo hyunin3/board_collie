@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 
 const RecentGamesList: React.FC = () => {
   const [recentGames, setRecentGames] = useState<string[]>([]);
@@ -9,6 +11,12 @@ const RecentGamesList: React.FC = () => {
     setRecentGames(loadedRecentGames);
   }, []);
 
+  const handleRemoveGame = (gameName: string) => {
+    const updatedRecentGames = recentGames.filter(name => name !== gameName);
+    localStorage.setItem('recentGames', JSON.stringify(updatedRecentGames));
+    setRecentGames(updatedRecentGames);
+  };
+
   const listStyle: React.CSSProperties = {
     listStyleType: 'none',
     padding: 0,
@@ -17,6 +25,9 @@ const RecentGamesList: React.FC = () => {
 
   const listItemStyle: React.CSSProperties = {
     marginBottom: '10px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   };
 
   const linkStyle: React.CSSProperties = {
@@ -31,6 +42,9 @@ const RecentGamesList: React.FC = () => {
           <Link to={`/game/${gameName}`} style={linkStyle}>
             {gameName}
           </Link>
+          <IconButton size="small" onClick={() => handleRemoveGame(gameName)}>
+            <CloseIcon fontSize="small" />
+          </IconButton>
         </li>
       ))}
     </ul>
