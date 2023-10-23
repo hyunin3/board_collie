@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const RecentGamesList: React.FC = () => {
   const [recentGames, setRecentGames] = useState<string[]>([]);
@@ -15,13 +16,22 @@ const RecentGamesList: React.FC = () => {
   };
 
   const listItemStyle: React.CSSProperties = {
-    marginBottom: '10px', // 이 값을 조정하여 간격을 변경할 수 있습니다.
+    marginBottom: '10px',
+  };
+
+  const linkStyle: React.CSSProperties = {
+    textDecoration: 'none',
+    color: 'inherit',
   };
 
   return (
     <ul style={listStyle}>
       {recentGames.map((gameName, index) => (
-        <li key={index} style={listItemStyle}>{gameName}</li>
+        <li key={index} style={listItemStyle}>
+          <Link to={`/game/${gameName}`} style={linkStyle}>
+            {gameName}
+          </Link>
+        </li>
       ))}
     </ul>
   );
