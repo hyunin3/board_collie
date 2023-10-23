@@ -4,6 +4,7 @@ import { Divider, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 import './SearchResultPage.css';
 import RecentGamesList from '../../components/RecentGamesList/RecentGamesList';
+import FilterBar from '../../components/FilterBar/FilterBar'
 
 type Game = {
   name: string;
@@ -59,7 +60,7 @@ const dummyData: Game[] = [
 const SearchResultsPage: React.FC = () => {
   
   const [results, setResults] = useState<Game[]>([]);
-
+  const [numberOfPlayers, setNumberOfPlayers] = useState('');
 
   const centerStyle: React.CSSProperties = {
     display: 'flex',
@@ -75,13 +76,33 @@ const SearchResultsPage: React.FC = () => {
     if (query.trim() === "") {
       setResults([]);
     } else {
-      const filteredGames = dummyData.filter(game =>
+      let filteredGames = dummyData.filter(game =>
         game.name.toLowerCase().includes(query.toLowerCase()) ||
         game.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
       );
+  
+      if (numberOfPlayers && numberOfPlayers !== "all") { // "all"일 때는 필터링하지 않습니다.
+        filteredGames = filteredGames.filter(game => {
+          return game.tags.some(tag => {
+            const playerMatch = tag.match(/(\d+)-?(\d+)?명/);
+            if (playerMatch) {
+              const [, min, max] = playerMatch;
+              const playerNum = parseInt(numberOfPlayers, 10);
+              if (max) {
+                return playerNum >= parseInt(min, 10) && playerNum <= parseInt(max, 10);
+              }
+              return playerNum === parseInt(min, 10);
+            }
+            return false;
+          });
+        });
+      }
+  
+  
       setResults(filteredGames);
     }
   };
+  
 
   const handleGameClick = (gameName: string) => {
     // 로컬 스토리지에서 최근 본 게임 목록을 불러옴
@@ -99,6 +120,7 @@ const SearchResultsPage: React.FC = () => {
   return (
     <div>
       <SearchBar onSearch={handleSearch} />
+      <FilterBar numberOfPlayers={numberOfPlayers} setNumberOfPlayers={setNumberOfPlayers} />
         <Grid container spacing={2}>
           <Grid item xs={9}>
     {/* 검색 결과를 보여주는 부분 */}
