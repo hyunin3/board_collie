@@ -3,6 +3,7 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import { Divider, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 import './SearchResultPage.css';
+import RecentGamesList from '../../components/RecentGamesList/RecentGamesList';
 
 type Game = {
   name: string;
@@ -81,22 +82,38 @@ const SearchResultsPage: React.FC = () => {
       setResults(filteredGames);
     }
   };
+
+  const handleGameClick = (gameName: string) => {
+    // 로컬 스토리지에서 최근 본 게임 목록을 불러옴
+    const recentGames = JSON.parse(localStorage.getItem('recentGames') || '[]');
+    
+    // 현재 클릭된 게임을 목록에 추가
+    // 만약 이미 목록에 있다면, 중복을 방지하기 위해 먼저 제거함
+    const newRecentGames = [...recentGames.filter((name: string) => name !== gameName), gameName];
+    
+    // 변경된 목록을 로컬 스토리지에 저장
+    localStorage.setItem('recentGames', JSON.stringify(newRecentGames));
+  };
   
 
   return (
     <div>
       <SearchBar onSearch={handleSearch} />
-      <Grid container spacing={2}>
-  <Grid item xs={9}>
+        <Grid container spacing={2}>
+          <Grid item xs={9}>
     {/* 검색 결과를 보여주는 부분 */}
-    {results.length === 0 ? (
+      {results.length === 0 ? (
       <div style={centerStyle}>검색 결과가 없습니다.</div>
     ) : (
       <div>
         {results.map((item, index) => (
           <div key={item.name}>
             <h3>
-              <Link to={`/game/${item.name}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Link 
+                to={`/game/${item.name}`} 
+                style={{ textDecoration: 'none', color: 'inherit' }}
+                onClick={() => handleGameClick(item.name)}
+                >
                 {item.name}
               </Link>
             </h3>
@@ -117,6 +134,7 @@ const SearchResultsPage: React.FC = () => {
       <div style={{ textAlign: 'center' }}>
         <h4>최근 본 게임</h4>
         {/* 여기에 최근 본 게임 리스트를 추가 */}
+        <RecentGamesList /> {/* 최근 본 게임 목록 컴포넌트 */}
       </div>
     </Grid>
   </Grid>
