@@ -55,8 +55,6 @@ const dummyData: Game[] = [
 ];
 
 
-
-
 const SearchResultsPage: React.FC = () => {
   
   const [results, setResults] = useState<Game[]>([]);
@@ -98,21 +96,17 @@ const SearchResultsPage: React.FC = () => {
         });
       }
   
-  
       setResults(filteredGames);
     }
   };
   
 
   const handleGameClick = (gameName: string) => {
-    // 로컬 스토리지에서 최근 본 게임 목록을 불러옴
+  
     const recentGames = JSON.parse(localStorage.getItem('recentGames') || '[]');
     
-    // 현재 클릭된 게임을 목록에 추가
-    // 만약 이미 목록에 있다면, 중복을 방지하기 위해 먼저 제거함
     const newRecentGames = [...recentGames.filter((name: string) => name !== gameName), gameName];
     
-    // 변경된 목록을 로컬 스토리지에 저장
     localStorage.setItem('recentGames', JSON.stringify(newRecentGames));
   };
   
@@ -123,7 +117,7 @@ const SearchResultsPage: React.FC = () => {
       <FilterBar numberOfPlayers={numberOfPlayers} setNumberOfPlayers={setNumberOfPlayers} />
         <Grid container spacing={2}>
           <Grid item xs={9}>
-    {/* 검색 결과를 보여주는 부분 */}
+   
       {results.length === 0 ? (
       <div style={centerStyle}>검색 결과가 없습니다.</div>
     ) : (
@@ -155,8 +149,7 @@ const SearchResultsPage: React.FC = () => {
     <Grid item xs style={{ overflowY: 'auto' }} className="hide-scrollbar">
       <div style={{ textAlign: 'center' }}>
         <h4>최근 본 게임</h4>
-        {/* 여기에 최근 본 게임 리스트를 추가 */}
-        <RecentGamesList /> {/* 최근 본 게임 목록 컴포넌트 */}
+        <RecentGamesList /> 
       </div>
     </Grid>
   </Grid>
