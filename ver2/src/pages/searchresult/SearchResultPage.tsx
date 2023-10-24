@@ -11,48 +11,170 @@ type Game = {
   tags: string[];
 };
 
-const dummyData: Game[] = [
+type GameFromServer = {
+  game_id: number;
+  game_title: string;
+  game_tag: Array<{
+    tag_id: number;
+    tag_name_kor: string;
+  }>;
+};
+
+// const dummyData: Game[] = [
+//   {
+//     name: '반지의 제왕',
+//     tags: ['어려움', '4명', '1시간', '판타지']
+//   },
+//   {
+//     name: '모노폴리',
+//     tags: ['보통', '2-6명', '2시간', '전략']
+//   },
+//   {
+//     name: '해리포터',
+//     tags: ['쉬움', '4명', '30분', '판타지']
+//   },
+//   {
+//     name: '델토라 퀘스트',
+//     tags: ['어려움', '2-4명', '1시간', '판타지']
+//   },
+//   {
+//     name: '카탄의 개척자들',
+//     tags: ['보통', '3-4명', '1시간', '전략']
+//   },
+//   {
+//     name: '카드게임 UNO',
+//     tags: ['쉬움', '2-10명', '30분', '가족']
+//   },
+//   {
+//     name: '코끼리 공주',
+//     tags: ['쉬움', '2-5명', '20분', '어린이']
+//   },
+//   {
+//     name: '독립 경제학자',
+//     tags: ['어려움', '3-5명', '2시간', '전략']
+//   },
+//   {
+//     name: '바둑',
+//     tags: ['어려움', '2명', '1-2시간', '전략']
+//   },
+//   {
+//     name: '체스',
+//     tags: ['보통', '2명', '1시간', '전략']
+//   }
+// ];
+
+const dummyDataFromServer: GameFromServer[] = [
   {
-    name: '반지의 제왕',
-    tags: ['어려움', '4명', '1시간', '판타지']
+    game_id: 1,
+    game_title: '스플렌더',
+    game_tag: [
+      { tag_id: 1, tag_name_kor: '어려움' },
+      { tag_id: 2, tag_name_kor: '2-4명' },
+      { tag_id: 3, tag_name_kor: '45분' },
+      { tag_id: 4, tag_name_kor: '전략' }
+    ]
   },
   {
-    name: '모노폴리',
-    tags: ['보통', '2-6명', '2시간', '전략']
+    game_id: 2,
+    game_title: '모노폴리',
+    game_tag: [
+      { tag_id: 1, tag_name_kor: '보통' },
+      { tag_id: 2, tag_name_kor: '2-8명' },
+      { tag_id: 3, tag_name_kor: '180분' },
+      { tag_id: 4, tag_name_kor: '경영' }
+    ]
   },
   {
-    name: '해리포터',
-    tags: ['쉬움', '4명', '30분', '판타지']
+    game_id: 3,
+    game_title: '다빈치코드',
+    game_tag: [
+      { tag_id: 1, tag_name_kor: '쉬움' },
+      { tag_id: 2, tag_name_kor: '2-4명' },
+      { tag_id: 3, tag_name_kor: '20분' },
+      { tag_id: 4, tag_name_kor: '추리' }
+    ]
   },
   {
-    name: '델토라 퀘스트',
-    tags: ['어려움', '2-4명', '1시간', '판타지']
+    game_id: 4,
+    game_title: '장미전쟁',
+    game_tag: [
+      { tag_id: 1, tag_name_kor: '보통' },
+      { tag_id: 2, tag_name_kor: '2명' },
+      { tag_id: 3, tag_name_kor: '25분' },
+      { tag_id: 4, tag_name_kor: '전략' }
+    ]
   },
   {
-    name: '카탄의 개척자들',
-    tags: ['보통', '3-4명', '1시간', '전략']
+    game_id: 5,
+    game_title: '센추리: 향신료의 길',
+    game_tag: [
+      { tag_id: 1, tag_name_kor: '어려움' },
+      { tag_id: 2, tag_name_kor: '2-5명' },
+      { tag_id: 3, tag_name_kor: '40분' },
+      { tag_id: 4, tag_name_kor: '전략' }
+    ]
   },
   {
-    name: '카드게임 UNO',
-    tags: ['쉬움', '2-10명', '30분', '가족']
+    game_id: 6,
+    game_title: '마헤',
+    game_tag: [
+      { tag_id: 1, tag_name_kor: '보통' },
+      { tag_id: 2, tag_name_kor: '4-7명' },
+      { tag_id: 3, tag_name_kor: '30분' },
+      { tag_id: 4, tag_name_kor: '경주' }
+    ]
   },
   {
-    name: '코끼리 공주',
-    tags: ['쉬움', '2-5명', '20분', '어린이']
+    game_id: 7,
+    game_title: '부루마불',
+    game_tag: [
+      { tag_id: 1, tag_name_kor: '보통' },
+      { tag_id: 2, tag_name_kor: '2-4명' },
+      { tag_id: 3, tag_name_kor: '60분' },
+      { tag_id: 4, tag_name_kor: '경영' }
+    ]
   },
   {
-    name: '독립 경제학자',
-    tags: ['어려움', '3-5명', '2시간', '전략']
+    game_id: 8,
+    game_title: '테라포밍마스',
+    game_tag: [
+      { tag_id: 1, tag_name_kor: '어려움' },
+      { tag_id: 2, tag_name_kor: '2-5명' },
+      { tag_id: 3, tag_name_kor: '120분' },
+      { tag_id: 4, tag_name_kor: '전략' }
+    ]
   },
   {
-    name: '바둑',
-    tags: ['어려움', '2명', '1-2시간', '전략']
+    game_id: 9,
+    game_title: '인코그니토',
+    game_tag: [
+      { tag_id: 1, tag_name_kor: '어려움' },
+      { tag_id: 2, tag_name_kor: '4명' },
+      { tag_id: 3, tag_name_kor: '60분' },
+      { tag_id: 4, tag_name_kor: '추리' }
+    ]
   },
   {
-    name: '체스',
-    tags: ['보통', '2명', '1시간', '전략']
-  }
+    game_id: 10,
+    game_title: '시타델',
+    game_tag: [
+      { tag_id: 1, tag_name_kor: '어려움' },
+      { tag_id: 2, tag_name_kor: '4-7명' },
+      { tag_id: 3, tag_name_kor: '60분' },
+      { tag_id: 4, tag_name_kor: '전략' }
+    ]
+  },
 ];
+const transformData = (dataFromServer: GameFromServer[]): Game[] => {
+  return dataFromServer.map(game => ({
+    id: game.game_id,
+    name: game.game_title,
+    tags: game.game_tag.map(tag => tag.tag_name_kor),
+  }));
+};
+
+const dummyData = transformData(dummyDataFromServer);
+
 
 
 const SearchResultsPage: React.FC = () => {
