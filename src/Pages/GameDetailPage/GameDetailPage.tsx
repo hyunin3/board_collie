@@ -11,10 +11,9 @@ const GameDetailPage: React.FC = () => {
   const goBack = () => {
     navigate(-1);
   };
-  
 
-  // 게임 정보를 불러오는 로직이 여기에 들어갑니다.
-  // 예를 들어, 상태를 사용하여 선택된 게임의 상세 정보를 저장하고 표시할 수 있습니다.
+  // 여기에 게임 데이터를 검색하는 로직을 추가하세요
+  // 예: const game = dummyData.find(game => game.name === name);
 
   return (
     <div>
@@ -22,10 +21,16 @@ const GameDetailPage: React.FC = () => {
         <ArrowBackIcon />
       </IconButton>
       <h1>{name}</h1>
-      {/* 게임의 상세 정보를 여기에 표시합니다. */}
-      
+      {/* 여기에 게임의 상세 정보를 표시하는 코드를 추가하세요 */}
+      {/* 예:
+      <ul>
+        {game?.tags.map(tag => (
+          <li key={tag}>{tag}</li>
+        ))}
+      </ul>
+      */}
     </div>
   );
-};
+}
 
 export default GameDetailPage;
