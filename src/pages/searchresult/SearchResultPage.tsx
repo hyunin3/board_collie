@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import SearchBar from '../../components/SearchBar/SearchBar';
+import SearchBar from '../../components/searchbar/SearchBar';
 import { Divider, Grid, Chip, Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
 import './SearchResultPage.css';
-import RecentGamesList from '../../components/RecentGamesList/RecentGamesList';
-import FilterBar from '../../components/FilterBar/FilterBar'
+import RecentGamesList from '../../components/recentgameslist/RecentGamesList';
+import FilterBar from '../../components/filterbar/FilterBar'
 
 type Game = {
   name: string;

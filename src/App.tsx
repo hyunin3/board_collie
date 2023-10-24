@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LobbyPage from './pages/LobbyPage/LobbyPage';
-import MainPage from './pages/MainPage/MainPage';
-import SearchResultPage from './pages/SearchResultPage/SearchResultPage'
-import GameDetailPage from './pages/GameDetailPage/GameDetailPage';
+import LobbyPage from './pages/lobby/LobbyPage';
+import MainPage from './pages/main/MainPage';
+import SearchResultPage from './pages/searchresult/SearchResultPage'
+import GameDetailPage from './pages/gamedetail/GameDetailPage';
 
 const App: React.FC = () => {
   return (
