@@ -191,7 +191,7 @@ const SearchResultsPage: React.FC = () => {
   
 
   return (
-    <div>
+    <div style={{ overflow: 'hidden', height: '100vh' }}>
     <SearchBar onSearch={handleSearch} style={{ position: 'relative', zIndex: 1000 }}/>
     <FilterBar numberOfPlayers={numberOfPlayers} setNumberOfPlayers={setNumberOfPlayers} style={{ marginTop: '2.1vh' }} />
     <Grid container spacing={2}>
