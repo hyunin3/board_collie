@@ -193,9 +193,9 @@ const dummyDataFromServer: GameFromServer[] = [
       { tag_id: 4, tag_name_kor: '전략' }
     ]
   },
- 
- 
+  
 ];
+
 const transformData = (dataFromServer: GameFromServer[]): Game[] => {
   return dataFromServer.map(game => ({
     id: game.game_id,
@@ -332,11 +332,9 @@ const SearchResultsPage: React.FC = () => {
             </div>
           ))}
         </InfiniteScroll>
-        
-
-        
         )}
       </Grid>
+
       <Grid item container xs={3} style={{ alignItems: 'flex-start' }}>
         <Divider orientation="vertical" flexItem sx={{ height: '100%' }} />
         <Grid item xs style={{ overflowY: 'auto', maxHeight: '90vh', scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }} >

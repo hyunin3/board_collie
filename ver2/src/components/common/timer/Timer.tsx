@@ -32,13 +32,22 @@ const Timer: React.FC = () => {
     };
   }, []);
 
-  const minutes = Math.floor(time / 60);
+  const hours = Math.floor(time / 3600);
+  const minutes = Math.floor((time % 3600) / 60);
   const seconds = time % 60;
+
+  const formatTime = () => {
+    if (hours >= 1) {
+      return `${hours}시간 ${minutes}분 ${seconds}초`;
+    } else {
+      return `${minutes}분 ${seconds}초`;
+    }
+  };
 
   return (
     <div>
       <ShowTime>
-        <Alarm style={{ fontSize: 25 }}/> {`${minutes}분 ${seconds}초`}
+        <Alarm style={{ fontSize: 25 }}/> {formatTime()}
       </ShowTime>
     </div>
   );

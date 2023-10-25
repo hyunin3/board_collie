@@ -59,7 +59,6 @@ const LobbyPage: React.FC<LobbyPageProps> = ({ players, setPlayers }) => {
           whiteSpace: 'pre-wrap', 
           marginBottom: '40px' 
         }}
-        onClick={startGame}
       >
         {Array.from('게임을 즐기실 인원을 선택해주세요!').map((char, index) => (
           <span key={index} style={{ display: 'inline-block', '--i': index } as React.CSSProperties}>
@@ -113,6 +112,7 @@ const LobbyPage: React.FC<LobbyPageProps> = ({ players, setPlayers }) => {
             fontSize: "2rem", 
             padding: '1px 70px',
           }}
+          onClick={startGame}
         >
           START
         </Button>

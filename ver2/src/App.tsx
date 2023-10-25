@@ -5,6 +5,7 @@ import MainPage from './pages/main/MainPage';
 import NavBar from './components/common/navbar/NavBar';
 import SearchResultPage from './pages/searchresult/SearchResultPage'
 import GameDetailPage from './pages/gamedetail/GameDetailPage';
+import GameRecommendPage from './pages/gamerecommend/GameRecommendPage';
 
 const App: React.FC = () => {
   const [players, setPlayers] = useState(2);
@@ -17,6 +18,7 @@ const App: React.FC = () => {
           <Route path="/main" element={<MainPage />} />
           <Route path="/searchresult" element={<SearchResultPage />} />
           <Route path="/game/:name" element={<GameDetailPage />} />
+          <Route path="/gamerecommend" element={<GameRecommendPage />} />
         </Route>  
       </Routes>
     </Router>

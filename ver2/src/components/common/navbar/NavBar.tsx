@@ -22,8 +22,7 @@ import PowerSettingsNew from '@mui/icons-material/PowerSettingsNew';
  * NavBar
  *
  * @author 허주혁
- * @todo 나중에 종료 버튼 클릭 시 Modal 창을 띄워서 '예'를 누르면 Lobby로 보내는 동시에 이용시간 POST, 
- * '아니오'를 누르면 Modal 창을 끄면서 스탑워치 다시 시작
+ * @todo 
  */
 
 // 상단 NavBar의 CSS
@@ -51,7 +50,7 @@ const Logo = styled.div`
     background-image: url(${iconLogo});
     background-size: contain;
     background-repeat: no-repeat;
-    width: 9vw;  
+    width: 7vw;  
     height: 12vh;
     padding: 0 1vw;
 `;
