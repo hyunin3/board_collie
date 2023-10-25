@@ -6,6 +6,7 @@ import './SearchResultPage.css';
 import RecentGamesList from '../../components/recentgameslist/RecentGamesList';
 import FilterBar from '../../components/filterbar/FilterBar'
 import InfiniteScroll from 'react-infinite-scroll-component';
+import gameimg from '../../assets/splendor.png'
 
 type Game = {
   name: string;
@@ -172,6 +173,26 @@ const dummyDataFromServer: GameFromServer[] = [
       { tag_id: 4, tag_name_kor: '전략' }
     ]
   },
+  {
+    game_id: 16,
+    game_title: '테스트1',
+    game_tag: [
+      { tag_id: 1, tag_name_kor: '어려움' },
+      { tag_id: 2, tag_name_kor: '4-7명' },
+      { tag_id: 3, tag_name_kor: '60분' },
+      { tag_id: 4, tag_name_kor: '전략' }
+    ]
+  },
+  {
+    game_id: 17,
+    game_title: '테스트2',
+    game_tag: [
+      { tag_id: 1, tag_name_kor: '어려움' },
+      { tag_id: 2, tag_name_kor: '4-7명' },
+      { tag_id: 3, tag_name_kor: '60분' },
+      { tag_id: 4, tag_name_kor: '전략' }
+    ]
+  },
  
  
 ];
@@ -273,44 +294,52 @@ const SearchResultsPage: React.FC = () => {
     <SearchBar onSearch={handleSearch} style={{ position: 'relative', zIndex: 1000 }}/>
     <FilterBar numberOfPlayers={numberOfPlayers} setNumberOfPlayers={setNumberOfPlayers} style={{ marginTop: '2.1vh' }} />
     <Grid container spacing={2}>
-      <Grid item xs={9} style={{ overflowY: 'auto', maxHeight: '90vh' }}>
+      <Grid item xs={9} style={{ overflowY: 'auto', maxHeight: '90vh', scrollbarWidth: 'none', msOverflowStyle: 'none' }} className="hide-scrollbar">
         {results.length === 0 ? (
           <div style={centerStyle}>검색 결과가 없습니다.</div>
         ) : (
           
           <InfiniteScroll
-          dataLength={visibleResults.length} // 현재 로드된 아이템의 개수
-          next={loadMore} // 스크롤이 끝에 도달했을 때 호출될 함수
-          hasMore={hasMore} // 더 로드할 아이템이 있는지 여부
-          loader={<h4>Loading...</h4>} // 로딩 중일 때 표시될 컴포넌트
+          dataLength={visibleResults.length}
+          next={loadMore}
+          hasMore={hasMore}
+          loader={<h4>Loading...</h4>}
           height={'80vh'}
+          className="hide-scrollbar"
         >
           {visibleResults.map((item, index) => (
-            <div key={item.name}>
-              <h3>
-                <Link 
-                  to={`/game/${item.name}`} 
-                  style={{ textDecoration: 'none', color: 'inherit' }}
-                  onClick={() => handleGameClick(item.name)}
-                >
-                  {item.name}
-                </Link>
-              </h3>
-              <Stack direction="row" spacing={1} style={{ marginBottom: '20px' }}>
-                {item.tags.map(tag => (
-                  <Chip key={tag} label={tag} />
-                ))}
-              </Stack>
+            <div key={item.name} style={{ marginLeft: '10vw' }} >
+              <div style={{ display: 'flex', alignItems: 'center', padding: '20px' }}>
+                <img src={gameimg} alt={item.name} style={{ width: '100px', height: '100px', marginRight: '20px' }} />
+                <div>
+                  <h3>
+                    <Link 
+                      to={`/game/${item.name}`} 
+                      style={{ textDecoration: 'none', color: 'inherit' }}
+                      onClick={() => handleGameClick(item.name)}
+                    >
+                      {item.name}
+                    </Link>
+                  </h3>
+                  <Stack direction="row" spacing={1} style={{ marginBottom: '20px' }}>
+                    {item.tags.map(tag => (
+                      <Chip key={tag} label={tag} />
+                    ))}
+                  </Stack>
+                </div>
+              </div>
               {index < visibleResults.length - 1 && <Divider />}
             </div>
           ))}
         </InfiniteScroll>
         
+
+        
         )}
       </Grid>
       <Grid item container xs={3} style={{ alignItems: 'flex-start' }}>
         <Divider orientation="vertical" flexItem sx={{ height: '100%' }} />
-        <Grid item xs style={{ overflowY: 'auto', maxHeight: '90vh' }} className="hide-scrollbar">
+        <Grid item xs style={{ overflowY: 'auto', maxHeight: '90vh', scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }} >
           <div style={{ textAlign: 'center' }}>
             <h4>최근 본 게임</h4>
             <RecentGamesList />
