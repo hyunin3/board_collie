@@ -291,7 +291,7 @@ const SearchResultsPage: React.FC = () => {
 
   return (
     <div style={{ overflow: 'hidden', height: '100vh' }}>
-    <SearchBar onSearch={handleSearch} style={{ position: 'relative', zIndex: 1000 }}/>
+    <SearchBar onSearch={handleSearch} style={{ position: 'relative' }}/>
     <FilterBar numberOfPlayers={numberOfPlayers} setNumberOfPlayers={setNumberOfPlayers} style={{ marginTop: '2.1vh' }} />
     <Grid container spacing={2}>
       <Grid item xs={9} style={{ overflowY: 'auto', maxHeight: '90vh', scrollbarWidth: 'none', msOverflowStyle: 'none' }} className="hide-scrollbar">

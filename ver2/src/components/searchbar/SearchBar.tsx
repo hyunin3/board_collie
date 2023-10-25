@@ -27,7 +27,7 @@ const SearchBar: React.FC<Props> = ({ onSearch, style }) => {
           variant="outlined"
           placeholder="제목이나 태그를 입력해주세요"
           InputProps={{
-            endAdornment: <SearchIcon  style={{ marginRight: '10px' }} />,
+            endAdornment: <SearchIcon  style={{position: 'relative', zIndex: 1000, marginRight: '10px'   }} />,
             sx: {
               height: '6vh',
               borderRadius: '30px',
@@ -35,6 +35,7 @@ const SearchBar: React.FC<Props> = ({ onSearch, style }) => {
               fontFamily: 'Jua, sans-serif',
             },
           }}
+          style={{ position: 'relative', zIndex: 1000 }}
           sx={{
             "& .MuiOutlinedInput-notchedOutline": {
               border: isFocused ? "" : 'none',
@@ -58,6 +59,7 @@ const SearchBar: React.FC<Props> = ({ onSearch, style }) => {
             paddingX: '30px',
             color: 'black',
           }}
+          style={{ position: 'relative', zIndex: 1000 }}
         >
           검색
         </Button>
