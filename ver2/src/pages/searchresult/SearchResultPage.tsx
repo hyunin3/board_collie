@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SearchBar from '../../components/searchbar/SearchBar';
 import { Divider, Grid, Chip, Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
 import './SearchResultPage.css';
 import RecentGamesList from '../../components/recentgameslist/RecentGamesList';
 import FilterBar from '../../components/filterbar/FilterBar'
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 type Game = {
   name: string;
@@ -121,6 +122,58 @@ const dummyDataFromServer: GameFromServer[] = [
       { tag_id: 4, tag_name_kor: '전략' }
     ]
   },
+  {
+    game_id: 11,
+    game_title: '시타델2',
+    game_tag: [
+      { tag_id: 1, tag_name_kor: '어려움' },
+      { tag_id: 2, tag_name_kor: '4-7명' },
+      { tag_id: 3, tag_name_kor: '60분' },
+      { tag_id: 4, tag_name_kor: '전략' }
+    ]
+  },
+  {
+    game_id: 12,
+    game_title: '시타델3',
+    game_tag: [
+      { tag_id: 1, tag_name_kor: '어려움' },
+      { tag_id: 2, tag_name_kor: '4-7명' },
+      { tag_id: 3, tag_name_kor: '60분' },
+      { tag_id: 4, tag_name_kor: '전략' }
+    ]
+  },
+  {
+    game_id: 13,
+    game_title: '시타델4',
+    game_tag: [
+      { tag_id: 1, tag_name_kor: '어려움' },
+      { tag_id: 2, tag_name_kor: '4-7명' },
+      { tag_id: 3, tag_name_kor: '60분' },
+      { tag_id: 4, tag_name_kor: '전략' }
+    ]
+  },
+  {
+    game_id: 14,
+    game_title: '시타델5',
+    game_tag: [
+      { tag_id: 1, tag_name_kor: '어려움' },
+      { tag_id: 2, tag_name_kor: '4-7명' },
+      { tag_id: 3, tag_name_kor: '60분' },
+      { tag_id: 4, tag_name_kor: '전략' }
+    ]
+  },
+  {
+    game_id: 15,
+    game_title: '시타델6',
+    game_tag: [
+      { tag_id: 1, tag_name_kor: '어려움' },
+      { tag_id: 2, tag_name_kor: '4-7명' },
+      { tag_id: 3, tag_name_kor: '60분' },
+      { tag_id: 4, tag_name_kor: '전략' }
+    ]
+  },
+ 
+ 
 ];
 const transformData = (dataFromServer: GameFromServer[]): Game[] => {
   return dataFromServer.map(game => ({
@@ -139,11 +192,36 @@ const SearchResultsPage: React.FC = () => {
   const [results, setResults] = useState<Game[]>([]);
   const [numberOfPlayers, setNumberOfPlayers] = useState('');
 
+  const [visibleResults, setVisibleResults] = useState<Game[]>([]);
+  const [hasMore, setHasMore] = useState(true);
+
+  useEffect(() => {
+    // 검색창이 비어있을 때 초기 상태로 설정
+    handleSearch('');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const loadMore = () => {
+    console.log("Load More is called");
+    if (visibleResults.length >= results.length) {
+      setHasMore(false);
+      return;
+    }
+    const moreResults = results.slice(visibleResults.length, visibleResults.length + 10);
+    setVisibleResults(visibleResults.concat(moreResults));
+  };
+
+  useEffect(() => {
+    // 검색 결과가 바뀔 때마다 visibleResults를 리셋하고 무한 스크롤을 다시 활성화합니다.
+    setVisibleResults(results.slice(0, 10));
+    setHasMore(true);
+  }, [results]);
+
   const centerStyle: React.CSSProperties = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 'calc(100vh - 60px)', // 60px를 검색바의 높이로 가정합니다. 실제 높이에 맞게 조절해야 합니다.
+    height: 'calc(100vh - 6vh)', 
     fontFamily: 'Jua, sans-serif',
     fontSize: '24px'
   };
@@ -195,36 +273,44 @@ const SearchResultsPage: React.FC = () => {
     <SearchBar onSearch={handleSearch} style={{ position: 'relative', zIndex: 1000 }}/>
     <FilterBar numberOfPlayers={numberOfPlayers} setNumberOfPlayers={setNumberOfPlayers} style={{ marginTop: '2.1vh' }} />
     <Grid container spacing={2}>
-      <Grid item xs={9}>
+      <Grid item xs={9} style={{ overflowY: 'auto', maxHeight: '90vh' }}>
         {results.length === 0 ? (
           <div style={centerStyle}>검색 결과가 없습니다.</div>
         ) : (
-          <div>
-            {results.map((item, index) => (
-              <div key={item.name}>
-                <h3>
-                  <Link 
-                    to={`/game/${item.name}`} 
-                    style={{ textDecoration: 'none', color: 'inherit' }}
-                    onClick={() => handleGameClick(item.name)}
-                  >
-                    {item.name}
-                  </Link>
-                </h3>
-                <Stack direction="row" spacing={1} style={{ marginBottom: '20px' }}>
-                  {item.tags.map(tag => (
-                    <Chip key={tag} label={tag} />
-                  ))}
-                </Stack>
-                {index < results.length - 1 && <Divider />}
-              </div>
-            ))}
-          </div>
+          
+          <InfiniteScroll
+          dataLength={visibleResults.length} // 현재 로드된 아이템의 개수
+          next={loadMore} // 스크롤이 끝에 도달했을 때 호출될 함수
+          hasMore={hasMore} // 더 로드할 아이템이 있는지 여부
+          loader={<h4>Loading...</h4>} // 로딩 중일 때 표시될 컴포넌트
+          height={'80vh'}
+        >
+          {visibleResults.map((item, index) => (
+            <div key={item.name}>
+              <h3>
+                <Link 
+                  to={`/game/${item.name}`} 
+                  style={{ textDecoration: 'none', color: 'inherit' }}
+                  onClick={() => handleGameClick(item.name)}
+                >
+                  {item.name}
+                </Link>
+              </h3>
+              <Stack direction="row" spacing={1} style={{ marginBottom: '20px' }}>
+                {item.tags.map(tag => (
+                  <Chip key={tag} label={tag} />
+                ))}
+              </Stack>
+              {index < visibleResults.length - 1 && <Divider />}
+            </div>
+          ))}
+        </InfiniteScroll>
+        
         )}
       </Grid>
       <Grid item container xs={3} style={{ alignItems: 'flex-start' }}>
         <Divider orientation="vertical" flexItem sx={{ height: '100%' }} />
-        <Grid item xs style={{ overflowY: 'auto' }} className="hide-scrollbar">
+        <Grid item xs style={{ overflowY: 'auto', maxHeight: '90vh' }} className="hide-scrollbar">
           <div style={{ textAlign: 'center' }}>
             <h4>최근 본 게임</h4>
             <RecentGamesList />

@@ -35,7 +35,7 @@ const MainPage: React.FC = () => {
     right: '20px',
     width: '100px',
     height: '100px',
-    borderRadius: '50%', // 원 형태로 만들기
+    borderRadius: '50%', 
     backgroundColor: '#CCF38C', 
     display: 'flex',
     alignItems: 'center',
@@ -53,7 +53,7 @@ const MainPage: React.FC = () => {
 
   return (
     <div>
-      <Grid container style={{ height: '100vh' }} justifyContent="center" alignItems="center" spacing={16}>
+      <Grid container style={{ height: '110vh'}} justifyContent="center" alignItems="center" spacing={16}>
         <Grid item>
           <Paper elevation={3} style={boxStyle}>
             게임 추천받기
