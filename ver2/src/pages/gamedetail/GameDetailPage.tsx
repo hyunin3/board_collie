@@ -3,6 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { IconButton, Box, Divider, Typography, Chip } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import gameimg from '../../assets/splendor.png'
+import gameQr from '../../assets/qr2.png';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 interface Game {
   name: string;
@@ -89,6 +91,42 @@ const GameDetailPage: React.FC = () => {
       <Typography style={{ fontFamily: 'Jua, sans-serif' }}>게임 정보를 찾을 수 없습니다.</Typography>
     )}
   </Box>
+  
+  <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
+  <Box sx={{ textAlign: 'center' }}>
+    <img src={gameQr} alt="QR 코드" style={{ maxWidth: '100%', maxHeight: '180px' }} />
+    <Typography sx={{ fontSize: '2rem', fontFamily: 'Jolly Lodger, cursive' }}>Chat Bot</Typography>
+  </Box>
+  
+  {/* 재생버튼과 튜토리얼 텍스트를 포함하는 부모 Box */}
+  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginLeft: '20px' }}>
+    {/* 연두색 박스와 재생 아이콘 */}
+    <Box
+      sx={{
+        borderRadius: 7,
+        backgroundColor: '#EDFFD0',
+        padding: '16px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100px',
+        height: '100px',
+        position: 'relative',
+      }}
+    >
+      <PlayArrowIcon
+        sx={{
+          fontSize: 90, // 아이콘의 크기
+          color: '#A1F38C', // 아이콘의 색상
+        }}
+      />
+    </Box>
+    <Typography textAlign="center" sx={{ fontSize: '2rem', fontFamily: 'Jolly Lodger, cursive', mt: 2 }}>Tutorial</Typography>
+  </Box>
+</Box>
+
+
+
 </Box>
 
 
