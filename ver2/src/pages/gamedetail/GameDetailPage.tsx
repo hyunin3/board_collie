@@ -126,12 +126,10 @@ const GameDetailPage: React.FC = () => {
 </Box>
 
 
-
 </Box>
 
-
       <Divider orientation="vertical" flexItem />
-      <Box sx={{ flex: 3, display: 'flex', flexDirection: 'column', justifyContent: 'start', pl: 14 }}>
+      <Box sx={{ flex: 3, display: 'flex', flexDirection: 'column', justifyContent: 'start', pl: 14, mt: 7 }}>
           <Typography variant="h5" sx={{ fontFamily: 'Jua, sans-serif', mb: 15 }}>
             테마 및 진행방식
           </Typography>
