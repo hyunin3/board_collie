@@ -206,13 +206,13 @@ const GameDetailPage: React.FC = () => {
     <ArrowBackIcon />
   </IconButton>
   <img src={gameimg} alt={name} style={{ maxWidth: '100%', maxHeight: '200px', marginBottom: '32px' }} />
-  <Typography variant="h4" gutterBottom sx={{ fontFamily: 'Jua, sans-serif', textAlign: 'center', mb: 3 }}>
+  <Typography variant="h3" gutterBottom sx={{ fontFamily: 'Jua, sans-serif', textAlign: 'center', mb: 3 }}>
     {name}
   </Typography>
   <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
     {game ? (
       game.tags.map(tag => (
-        <Chip key={tag} label={tag} sx={{ fontFamily: 'Jua, sans-serif', mb: 2 }} />
+        <Chip key={tag} label={tag} sx={{ fontSize: '1rem',fontFamily: 'Jua, sans-serif', mb: 2 }} />
       ))
     ) : (
       <Typography style={{ fontFamily: 'Jua, sans-serif' }}>게임 정보를 찾을 수 없습니다.</Typography>

@@ -9,8 +9,19 @@ const SelectPage: React.FC = () => {
   const { name } = useParams<{ name: string }>();
   const navigate = useNavigate();
 
+  const validTitles = ['스플렌더', ];
+
   const goBack = () => {
     navigate(-1);
+  };
+
+  const handleGameImageClick = () => {
+    // 게임 이름이 유효한지 확인
+    if (name && validTitles.includes(name)) {
+      navigate(`/tutorial/${encodeURIComponent(name)}`);
+    } else {
+      navigate('/notfound2');
+    }
   };
 
   const handleYoutubeSearch = () => {
@@ -24,9 +35,11 @@ const SelectPage: React.FC = () => {
         <ArrowBackIcon />
       </IconButton>
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 30, mb: 2, mt: 20 }}>
-        <Card sx={{ width: 300 }}>
-          <CardMedia component="img" height="140" image={gameimg} alt={name} />
-        </Card>
+      <Box component="button" onClick={handleGameImageClick} sx={{ border: 'none', padding: 0, background: 'none' }}>
+    <Card sx={{ width: 300 }}>
+      <CardMedia component="img" height="140" image={gameimg} alt={name} />
+    </Card>
+  </Box>
         <Box
           component="button"
           onClick={handleYoutubeSearch}

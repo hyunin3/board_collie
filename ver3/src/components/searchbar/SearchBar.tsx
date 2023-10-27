@@ -19,6 +19,12 @@ const SearchBar: React.FC<Props> = ({ onSearch, style }) => {
     onSearch(inputValue);
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleSearchClick();
+    }
+  };
+
   return (
     <Grid container justifyContent="center" alignItems="center" spacing={2} style={{ marginTop: '15px', ...style }}>
       <Grid item xs={4}>
@@ -46,6 +52,7 @@ const SearchBar: React.FC<Props> = ({ onSearch, style }) => {
           onChange={handleInputChange}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
+          onKeyDown={handleKeyDown}
         />
       </Grid>
       <Grid item xs={2}>
