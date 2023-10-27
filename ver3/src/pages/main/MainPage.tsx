@@ -5,6 +5,8 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import { Link } from 'react-router-dom';
 import mainQr from '../../assets/qr 1.png';
+import Fab from '@mui/material/Fab';
+import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
 
 const MainPage: React.FC = () => {
   const boxStyle: React.CSSProperties = {
@@ -51,6 +53,12 @@ const MainPage: React.FC = () => {
     marginTop: '10px',
   };
 
+  const fabStyle: React.CSSProperties = {
+    position: 'fixed',
+    bottom: 16,
+    right: 16,
+  };
+
   return (
     <div>
       <Grid container style={{ height: '110vh' }} justifyContent="center" alignItems="center" spacing={16}>
@@ -77,6 +85,12 @@ const MainPage: React.FC = () => {
         </div>
         <p style={textStyle}>chat bot</p>
       </div>
+
+      <Link to="/roulettegame" style={{ textDecoration: 'none' }}>
+        <Fab color="primary" aria-label="룰렛 페이지로 이동" style={fabStyle}>
+          <VideogameAssetIcon />
+        </Fab>
+      </Link>
     </div>
   );
 };
