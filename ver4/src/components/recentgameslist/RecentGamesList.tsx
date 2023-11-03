@@ -29,7 +29,7 @@ const RecentGamesList: React.FC = () => {
   };
 
   const listItemStyle: React.CSSProperties = {
-    marginBottom: '10px',
+    marginBottom: '100px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',

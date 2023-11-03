@@ -41,136 +41,6 @@ const dummyDataFromServer: GameFromServer[] = [
       { tag_id: 4, tag_name_kor: '경영' }
     ]
   },
-  {
-    game_id: 3,
-    game_title: '다빈치코드',
-    game_tag: [
-      { tag_id: 1, tag_name_kor: '쉬움' },
-      { tag_id: 2, tag_name_kor: '2-4명' },
-      { tag_id: 3, tag_name_kor: '20분' },
-      { tag_id: 4, tag_name_kor: '추리' }
-    ]
-  },
-  {
-    game_id: 4,
-    game_title: '장미전쟁',
-    game_tag: [
-      { tag_id: 1, tag_name_kor: '보통' },
-      { tag_id: 2, tag_name_kor: '2명' },
-      { tag_id: 3, tag_name_kor: '25분' },
-      { tag_id: 4, tag_name_kor: '전략' }
-    ]
-  },
-  {
-    game_id: 5,
-    game_title: '센추리: 향신료의 길',
-    game_tag: [
-      { tag_id: 1, tag_name_kor: '어려움' },
-      { tag_id: 2, tag_name_kor: '2-5명' },
-      { tag_id: 3, tag_name_kor: '40분' },
-      { tag_id: 4, tag_name_kor: '전략' }
-    ]
-  },
-  {
-    game_id: 6,
-    game_title: '마헤',
-    game_tag: [
-      { tag_id: 1, tag_name_kor: '보통' },
-      { tag_id: 2, tag_name_kor: '4-7명' },
-      { tag_id: 3, tag_name_kor: '30분' },
-      { tag_id: 4, tag_name_kor: '경주' }
-    ]
-  },
-  {
-    game_id: 7,
-    game_title: '부루마불',
-    game_tag: [
-      { tag_id: 1, tag_name_kor: '보통' },
-      { tag_id: 2, tag_name_kor: '2-4명' },
-      { tag_id: 3, tag_name_kor: '60분' },
-      { tag_id: 4, tag_name_kor: '경영' }
-    ]
-  },
-  {
-    game_id: 8,
-    game_title: '테라포밍마스',
-    game_tag: [
-      { tag_id: 1, tag_name_kor: '어려움' },
-      { tag_id: 2, tag_name_kor: '2-5명' },
-      { tag_id: 3, tag_name_kor: '120분' },
-      { tag_id: 4, tag_name_kor: '전략' }
-    ]
-  },
-  {
-    game_id: 9,
-    game_title: '인코그니토',
-    game_tag: [
-      { tag_id: 1, tag_name_kor: '어려움' },
-      { tag_id: 2, tag_name_kor: '4명' },
-      { tag_id: 3, tag_name_kor: '60분' },
-      { tag_id: 4, tag_name_kor: '추리' }
-    ]
-  },
-  {
-    game_id: 10,
-    game_title: '시타델',
-    game_tag: [
-      { tag_id: 1, tag_name_kor: '어려움' },
-      { tag_id: 2, tag_name_kor: '4-7명' },
-      { tag_id: 3, tag_name_kor: '60분' },
-      { tag_id: 4, tag_name_kor: '전략' }
-    ]
-  },
-  {
-    game_id: 11,
-    game_title: '제왕의 깃발',
-    game_tag: [
-      { tag_id: 1, tag_name_kor: '보통' },
-      { tag_id: 2, tag_name_kor: '3-4명' },
-      { tag_id: 3, tag_name_kor: '20분' },
-      { tag_id: 4, tag_name_kor: '전략' }
-    ]
-  },
-  {
-    game_id: 12,
-    game_title: '마피아 데 쿠바',
-    game_tag: [
-      { tag_id: 1, tag_name_kor: '어려움' },
-      { tag_id: 2, tag_name_kor: '6-12명' },
-      { tag_id: 3, tag_name_kor: '60분' },
-      { tag_id: 4, tag_name_kor: '전략' }
-    ]
-  },
-  {
-    game_id: 13,
-    game_title: '아발론',
-    game_tag: [
-      { tag_id: 1, tag_name_kor: '쉬움' },
-      { tag_id: 2, tag_name_kor: '2명' },
-      { tag_id: 3, tag_name_kor: '20분' },
-      { tag_id: 4, tag_name_kor: '전략' }
-    ]
-  },
-  {
-    game_id: 14,
-    game_title: '루미큐브',
-    game_tag: [
-      { tag_id: 1, tag_name_kor: '보통' },
-      { tag_id: 2, tag_name_kor: '2-6명' },
-      { tag_id: 3, tag_name_kor: '30분' },
-      { tag_id: 4, tag_name_kor: '타일조합' }
-    ]
-  },
-  {
-    game_id: 15,
-    game_title: '로스트시티',
-    game_tag: [
-      { tag_id: 1, tag_name_kor: '보통' },
-      { tag_id: 2, tag_name_kor: '2명' },
-      { tag_id: 3, tag_name_kor: '20분' },
-      { tag_id: 4, tag_name_kor: '전략' }
-    ]
-  },
 
  
 ];
@@ -204,7 +74,7 @@ const GameDetailPage: React.FC = () => {
   
 
   return (
-    <Box sx={{ padding: '20px', display: 'flex', flexDirection: 'row', marginTop: '90px' }}>
+    <Box sx={{ height: '100vh', overflow: 'hidden',  padding: '20px', display: 'flex', flexDirection: 'row', marginTop: '90px' }}>
      <Box sx={{ flex: 2, marginRight: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
   <IconButton onClick={goBack} aria-label="뒤로 가기" sx={{ alignSelf: 'flex-start', mb: 2 }}>
     <ArrowBackIcon />
@@ -213,7 +83,7 @@ const GameDetailPage: React.FC = () => {
   <Typography variant="h3" gutterBottom sx={{ fontFamily: 'Jua, sans-serif', textAlign: 'center', mb: 3 }}>
       {game?.name} 
     </Typography>
-  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
+    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center' }}>
     {game ? (
       game.tags.map(tag => (
         <Chip key={tag} label={tag} sx={{ fontSize: '1rem',fontFamily: 'Jua, sans-serif', mb: 2 }} />
@@ -261,16 +131,21 @@ const GameDetailPage: React.FC = () => {
 </Box>
 
       <Divider orientation="vertical" flexItem />
-      <Box sx={{ flex: 3, display: 'flex', flexDirection: 'column', justifyContent: 'start', pl: 14, mt: 7 }}>
-          <Typography variant="h5" sx={{ fontFamily: 'Jua, sans-serif', mb: 15 }}>
+      <Box sx={{ flex: 3, display: 'flex', flexDirection: 'column', justifyContent: 'start', pl: 5, mt: 3, maxHeight: '100vh', overflowY: 'auto' }} className="hide-scrollbar">
+          <Typography variant="h5" sx={{ fontFamily: 'Jua, sans-serif', mb: 3 }}>
             테마 및 진행방식
           </Typography>
-          <Typography variant="h5" sx={{ fontFamily: 'Jua, sans-serif', mb: 15 }}>
-            게임별 요약
+          <p>스플렌더는 고객들로부터 높은 평가를 받고 있습니다. 이 게임은 전략적인 생각이 필요하며 직관적인 룰로 이해하기에 쉽다는 점을 긍정적으로 평가 받고 있습니다. 또한, 높은 재현성으로 매번 다른 플레이를 경험할 수 있어 재미를 더하고 있습니다. 사용자들은 양질의 게임 요소와 매력적인 아트워크로 꾸며진 게임 보드를 특히 칭찬하고 있습니다. 플레이 시간이 30분 내외로 짧으며 따라서 바쁜 현대인들의 라이프 스타일에 적합합니다. 아무래도 복잡성을 줄이면서도 전략적인 깊이를 유지하는 밸런스가 훌륭하기 때문에 스플렌더는 가족 및 친구와 함께 즐기기에 이상적인 게임으로 손꼽힙니다.</p>
+          <Typography variant="h5" sx={{ fontFamily: 'Jua, sans-serif', mb: 2.5, mt: 3 }}>
+            게임평 요약
           </Typography>
+          <p>스플렌더는 고객들로부터 높은 평가를 받고 있습니다. 이 게임은 전략적인 생각이 필요하며 직관적인 룰로 이해하기에 쉽다는 점을 긍정적으로 평가 받고 있습니다. 또한, 높은 재현성으로 매번 다른 플레이를 경험할 수 있어 재미를 더하고 있습니다. 사용자들은 양질의 게임 요소와 매력적인 아트워크로 꾸며진 게임 보드를 특히 칭찬하고 있습니다. 플레이 시간이 30분 내외로 짧으며 따라서 바쁜 현대인들의 라이프 스타일에 적합합니다. 아무래도 복잡성을 줄이면서도 전략적인 깊이를 유지하는 밸런스가 훌륭하기 때문에 스플렌더는 가족 및 친구와 함께 즐기기에 이상적인 게임으로 손꼽힙니다.</p>
           <Typography variant="h5" sx={{ fontFamily: 'Jua, sans-serif' }}>
             유사한 다른 게임
           </Typography>
+          <p>스플렌더는 고객들로부터 높은 평가를 받고 있습니다. 이 게임은 전략적인 생각이 필요하며 직관적인 룰로 이해하기에 쉽다는 점을 긍정적으로 평가 받고 있습니다. 또한, 높은 재현성으로 매번 다른 플레이를 경험할 수 있어 재미를 더하고 있습니다. 사용자들은 양질의 게임 요소와 매력적인 아트워크로 꾸며진 게임 보드를 특히 칭찬하고 있습니다. 플레이 시간이 30분 내외로 짧으며 따라서 바쁜 현대인들의 라이프 스타일에 적합합니다. 아무래도 복잡성을 줄이면서도 전략적인 깊이를 유지하는 밸런스가 훌륭하기 때문에 스플렌더는 가족 및 친구와 함께 즐기기에 이상적인 게임으로 손꼽힙니다.</p>
+          <p>스플렌더는 고객들로부터 높은 평가를 받고 있습니다. 이 게임은 전략적인 생각이 필요하며 직관적인 룰로 이해하기에 쉽다는 점을 긍정적으로 평가 받고 있습니다. 또한, 높은 재현성으로 매번 다른 플레이를 경험할 수 있어 재미를 더하고 있습니다. 사용자들은 양질의 게임 요소와 매력적인 아트워크로 꾸며진 게임 보드를 특히 칭찬하고 있습니다. 플레이 시간이 30분 내외로 짧으며 따라서 바쁜 현대인들의 라이프 스타일에 적합합니다. 아무래도 복잡성을 줄이면서도 전략적인 깊이를 유지하는 밸런스가 훌륭하기 때문에 스플렌더는 가족 및 친구와 함께 즐기기에 이상적인 게임으로 손꼽힙니다.</p>
+          <p>스플렌더는 고객들로부터 높은 평가를 받고 있습니다. 이 게임은 전략적인 생각이 필요하며 직관적인 룰로 이해하기에 쉽다는 점을 긍정적으로 평가 받고 있습니다. 또한, 높은 재현성으로 매번 다른 플레이를 경험할 수 있어 재미를 더하고 있습니다. 사용자들은 양질의 게임 요소와 매력적인 아트워크로 꾸며진 게임 보드를 특히 칭찬하고 있습니다. 플레이 시간이 30분 내외로 짧으며 따라서 바쁜 현대인들의 라이프 스타일에 적합합니다. 아무래도 복잡성을 줄이면서도 전략적인 깊이를 유지하는 밸런스가 훌륭하기 때문에 스플렌더는 가족 및 친구와 함께 즐기기에 이상적인 게임으로 손꼽힙니다.</p>
         </Box>
       </Box>
       );

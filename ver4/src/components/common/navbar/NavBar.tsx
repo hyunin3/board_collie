@@ -59,9 +59,8 @@ const Logo = styled.div`
 
 const PlayersNumber = styled.div`
     padding: 0 1vw;
-    font-size: 1.1rem;
-    font-weight: bold;
-    fontFamily: 'Jolly Lodger, cursive',
+    font-size: 1.5rem;
+    font-family: 'Jua', sans-serif;
 `;
 
 const RightSection = styled.div`
@@ -75,9 +74,12 @@ const RightSection = styled.div`
 const ColumnWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
+    align-items: flex-start;
+    // justify-content: center;
+`;
+const InnerWrapper = styled.div`
+    height: 50%;
+    width: 100%;
 `;
 
 const ModalContent = styled.div`
@@ -126,19 +128,19 @@ function NavBar({ players } : NavBarProps) {
     }
 
     const openModal = () => {
-        // 스탑워치 정지
-        localStorage.setItem('isActive', 'false');
         setModalOpen(true);
     };
 
     const closeModal = () => {
-        // 스탑워치 resume
-        localStorage.setItem('isActive', 'true');
         setModalOpen(false);
     };
 
     // 게임 종료 및 이용시간 POST
     const endGame = async () => {
+
+        localStorage.removeItem('players');
+        localStorage.removeItem('isActive');
+        localStorage.removeItem('time');
 
         // // axios를 사용하여 이용시간 POST
         // try {
@@ -161,8 +163,8 @@ function NavBar({ players } : NavBarProps) {
                 <Logo onClick={handleLogoClick}/>
                 <RightSection>
                     <ColumnWrapper>
-                        <Timer />
-                        <PlayersNumber>{`플레이 인원 : ${players} 인`}</PlayersNumber>
+                        <InnerWrapper><Timer /></InnerWrapper>
+                        <InnerWrapper><PlayersNumber>{`플레이 인원 : ${players} 인`}</PlayersNumber></InnerWrapper>
                     </ColumnWrapper>
                     <PowerSettingsNew style={{ fontSize: 40, padding: '0 1vw' }} onClick={openModal} />
                     <Modal
