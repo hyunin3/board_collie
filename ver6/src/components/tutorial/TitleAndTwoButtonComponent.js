@@ -82,7 +82,7 @@ function TitleAndTwoButtonComponent({title, buttonInfo, setPage, prePage}) {
     // title 강조 부분
     useEffect(() => {
         const parsedTitle = reactStringReplace(title, /<RedText>(.*?)<\/RedText>/g, (match, i) => (
-            <RedTextContent key={i}>{match}</RedTextContent>
+            <RedTextContent key={match}>{match}</RedTextContent>
         ));
         setHighlightedTitle(parsedTitle);
     }, [title]);

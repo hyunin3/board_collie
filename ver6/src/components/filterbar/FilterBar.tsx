@@ -52,7 +52,7 @@ const FilterBar: React.FC<FilterBarProps> = ({ numberOfPlayers, setNumberOfPlaye
     }
   };
 
-  const tagList = ["카드 게임", "어린이 게임", "추리", "투표", "퍼즐", "주사위"];
+  const tagList = ["핸드 관리", "세트 모으기", "파티 게임", "어린이 게임", "카드 게임", "추리", "투표", "퍼즐", "주사위", "블러핑"];
 
 
   const renderValue = (selectedValue: string) => {
