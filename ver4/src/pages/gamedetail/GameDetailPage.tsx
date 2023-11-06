@@ -74,7 +74,8 @@ const GameDetailPage: React.FC = () => {
   
 
   return (
-    <Box sx={{ height: '100vh', overflow: 'hidden',  padding: '20px', display: 'flex', flexDirection: 'row', marginTop: '90px' }}>
+    <div style={{ overflow: 'hidden', height: '100vh' }}>
+    <Box sx={{ height: '80vh',  padding: '20px', display: 'flex', flexDirection: 'row', marginTop: '90px' }}>
      <Box sx={{ flex: 2, marginRight: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
   <IconButton onClick={goBack} aria-label="뒤로 가기" sx={{ alignSelf: 'flex-start', mb: 2 }}>
     <ArrowBackIcon />
@@ -131,7 +132,7 @@ const GameDetailPage: React.FC = () => {
 </Box>
 
       <Divider orientation="vertical" flexItem />
-      <Box sx={{ flex: 3, display: 'flex', flexDirection: 'column', justifyContent: 'start', pl: 5, mt: 3, maxHeight: '100vh', overflowY: 'auto' }} className="hide-scrollbar">
+      <Box sx={{ flex: 3, display: 'flex', flexDirection: 'column', justifyContent: 'start', pl: 5, mt: 3, overflowY: 'auto' }} className="hide-scrollbar">
           <Typography variant="h5" sx={{ fontFamily: 'Jua, sans-serif', mb: 3 }}>
             테마 및 진행방식
           </Typography>
@@ -148,6 +149,7 @@ const GameDetailPage: React.FC = () => {
           <p>스플렌더는 고객들로부터 높은 평가를 받고 있습니다. 이 게임은 전략적인 생각이 필요하며 직관적인 룰로 이해하기에 쉽다는 점을 긍정적으로 평가 받고 있습니다. 또한, 높은 재현성으로 매번 다른 플레이를 경험할 수 있어 재미를 더하고 있습니다. 사용자들은 양질의 게임 요소와 매력적인 아트워크로 꾸며진 게임 보드를 특히 칭찬하고 있습니다. 플레이 시간이 30분 내외로 짧으며 따라서 바쁜 현대인들의 라이프 스타일에 적합합니다. 아무래도 복잡성을 줄이면서도 전략적인 깊이를 유지하는 밸런스가 훌륭하기 때문에 스플렌더는 가족 및 친구와 함께 즐기기에 이상적인 게임으로 손꼽힙니다.</p>
         </Box>
       </Box>
+      </div>
       );
     }
 
