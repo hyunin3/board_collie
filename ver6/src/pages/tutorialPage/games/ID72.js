@@ -22,7 +22,7 @@ const background3 = 'https://s3.ap-northeast-2.amazonaws.com/boardcollie.com/tut
 const chatbot = 'https://s3.ap-northeast-2.amazonaws.com/boardcollie.com/chatbot/qr/QR72.jpg';
 const info1 = 'https://s3.ap-northeast-2.amazonaws.com/boardcollie.com/tutorial/72/info1.png';
 const info2 = 'https://s3.ap-northeast-2.amazonaws.com/boardcollie.com/tutorial/72/info2.png';
-const info3 = process.env.PUBLIC_URL + '/tutorial/splendor/info3.png'; // 임시 사진
+const info3 = 'https://s3.ap-northeast-2.amazonaws.com/boardcollie.com/tutorial/72/info3.png';
 const setting1 = 'https://s3.ap-northeast-2.amazonaws.com/boardcollie.com/tutorial/72/setting1.jpg';
 const setting2 = 'https://s3.ap-northeast-2.amazonaws.com/boardcollie.com/tutorial/72/setting2.jpg';
 const setting3_2 = 'https://s3.ap-northeast-2.amazonaws.com/boardcollie.com/tutorial/72/setting3-2.jpg';
@@ -340,7 +340,7 @@ function Splender({players, setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) 
         [ // 21: 개요(2)
             'ImageAndContentComponent', // 템플릿
             summary1, // image
-            '<TypeIt>토큰💰으로<br/>개발 카드🃏를 구매하여<br/>승점과 보너스를 얻을 수 있습니다.</TypeIt>', // content
+            '<TypeIt>토큰으로<br/>개발 카드를 구매하여<br/>승점과 보너스를 얻을 수 있습니다.</TypeIt>', // content
             20, // 이전 페이지 flow 번호
             22 // 다음 페이지 flow 번호
         ],
