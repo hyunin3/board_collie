@@ -120,7 +120,8 @@ const GameDetailPage: React.FC = () => {
   };
 
   return (
-    <Box sx={{ padding: '20px', display: 'flex', flexDirection: 'row', marginTop: '90px' }}>
+    <div style={{ overflow: 'hidden', height: '100vh' }}>
+    <Box sx={{ height: '80vh', padding: '20px', display: 'flex', flexDirection: 'row', marginTop: '90px' }}>
      <Box sx={{ flex: 2, marginRight: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
   <IconButton onClick={goBack} aria-label="뒤로 가기" sx={{ alignSelf: 'flex-start', mb: 2 }}>
     <ArrowBackIcon />
@@ -188,7 +189,7 @@ const GameDetailPage: React.FC = () => {
 </Box>
 
       <Divider orientation="vertical" flexItem />
-      <Box sx={{ flex: 3, display: 'flex', flexDirection: 'column', justifyContent: 'start', pl: 5, mt: 3 }} className="hide-scrollbar">
+      <Box sx={{ flex: 3, display: 'flex', flexDirection: 'column', justifyContent: 'start', pl: 5, mt: 3, overflowY: 'auto' }} className="hide-scrollbar">
       
       <Typography variant="h5" sx={{ fontFamily: 'Jua, sans-serif', mb: 3 }}>
         테마 및 진행방식
@@ -248,6 +249,7 @@ const GameDetailPage: React.FC = () => {
       </Modal>
 
       </Box>
+      </div>
       );
     }
 
