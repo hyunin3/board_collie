@@ -52,8 +52,8 @@ const FilterBar: React.FC<FilterBarProps> = ({ numberOfPlayers, setNumberOfPlaye
     }
   };
 
-  const tagList = ["핸드 관리", "세트 모으기", "파티 게임", "어린이 게임", "카드 게임", "추리", "투표", "퍼즐", "주사위", "블러핑"];
-
+  const oldTagList = ["핸드 관리", "세트 모으기", "파티 게임", "어린이 게임", "카드 게임", "추리", "투표", "퍼즐", "주사위", "블러핑"];
+  const newTagList = ["액션 / 손재주", "동물", "추상 전략", "실시간", "운 시험 게임", "타일 놓기", "치고받기", "경제", "패턴 구축", "팀전 게임", "판타지"];
 
   const renderValue = (selectedValue: string) => {
     if (selectedValue === '') {
@@ -62,10 +62,10 @@ const FilterBar: React.FC<FilterBarProps> = ({ numberOfPlayers, setNumberOfPlaye
     return selectedValue === "all" ? "상관없음" : `${selectedValue}명`;
   };
   
-
   return (
     <FilterBarContainer style={style}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />} >
+      <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
         <FormControl variant="outlined" sx={{ m: 1, minWidth: 120 }}>
           <CustomSelect
             value={numberOfPlayers}
@@ -87,17 +87,29 @@ const FilterBar: React.FC<FilterBarProps> = ({ numberOfPlayers, setNumberOfPlaye
             ))}
           </CustomSelect>
         </FormControl>
+        <div style={{ flexGrow: 1, display: 'flex', justifyContent: 'flex-end' }}>
+            {oldTagList.map(tag => (
+              <Chip 
+                key={tag} 
+                label={tag} 
+                onClick={() => handleTagClick(tag)} 
+                style={{ margin: '4px' }}
+                variant={tagFilter === tag ? 'filled' : 'outlined'}
+              />
+            ))}
+          </div>
+        </div>
       </AccordionSummary>
       <AccordionDetails>
-        {tagList.map(tag => (
-          <Chip 
-            key={tag} 
-            label={tag} 
-            onClick={() => handleTagClick(tag)} 
-            style={{ margin: '4px' }}
-            variant={tagFilter === tag ? 'filled' : 'outlined'}
-          />
-        ))}
+      {newTagList.map(tag => (
+            <Chip 
+              key={tag} 
+              label={tag} 
+              onClick={() => handleTagClick(tag)} 
+              style={{ margin: '4px' }}
+              variant={tagFilter === tag ? 'filled' : 'outlined'}
+            />
+          ))}
       </AccordionDetails>
     </FilterBarContainer>
   );

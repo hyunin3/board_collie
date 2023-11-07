@@ -167,21 +167,21 @@ const SearchResultsPage: React.FC = () => {
               </Link>
 
               <div>
-  <h3>
-    <Link 
-      to={`/game/${item.id}`} 
-      style={{ textDecoration: 'none', color: 'inherit' }}
-      onClick={() => handleGameClick(item.id)}
-    >
-      {item.name}
-    </Link>
-  </h3>
-  <div style={{ display: 'flex', flexWrap: 'wrap', marginBottom: '20px' }}>
-    {item.tags.map(tag => (
-      <Chip key={tag} label={tag} style={{ margin: '4px', marginBottom: '8px' }} />
-    ))}
-  </div>
-</div>
+                <h3>
+                  <Link 
+                    to={`/game/${item.id}`} 
+                    style={{ textDecoration: 'none', color: 'inherit' }}
+                    onClick={() => handleGameClick(item.id)}
+                  >
+                    {item.name}
+                  </Link>
+                </h3>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', marginBottom: '20px' }}>
+                  {item.tags.map(tag => (
+                  <Chip key={tag} label={tag} style={{ margin: '4px', marginBottom: '8px', backgroundColor: '#dce7c7' }} />
+                    ))}
+                  </div>
+                </div>
 
               </div>
               {index < visibleResults.length - 1 && <Divider />}
