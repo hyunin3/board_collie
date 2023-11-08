@@ -1,9 +1,57 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Box, Typography, IconButton, Card, CardMedia } from '@mui/material';
+import { Box, Typography, IconButton } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import gameimg from '../../assets/splendor.png';
 import yt_logo from '../../assets/yt_logo_rgb_light.png';
+import styled from 'styled-components';
+
+const StyledH1 = styled.h1`
+@font-face {
+  font-family: 'YClover-Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/YClover-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+margin: 0;
+font-size: 7em;
+padding: 0;
+color: #7fe800;
+text-shadow: 0 0.1em 20px rgba(0, 0, 0, 1), 0.05em -0.03em 0 rgba(0, 0, 0, 1),
+  0.05em 0.005em 0 rgba(0, 0, 0, 1), 0em 0.08em 0 rgba(0, 0, 0, 1),
+  0.05em 0.08em 0 rgba(0, 0, 0, 1), 0px -0.03em 0 rgba(0, 0, 0, 1),
+  -0.03em -0.03em 0 rgba(0, 0, 0, 1), -0.03em 0.08em 0 rgba(0, 0, 0, 1), -0.03em 0 0 rgba(0, 0, 0, 1);
+font-family: 'YClover-Bold', cursive;
+
+span {
+  transform: scale(0.9);
+  display: inline-block;
+  animation-name: bop;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+span:first-child {
+  animation-delay: 0s;
+}
+
+span:last-child {
+  animation-name: bopB;
+  animation-delay: 0.2s;
+}
+
+@keyframes bop {
+  0% { transform: scale(0.9); }
+  50%, 100% { transform: scale(1); }
+}
+
+@keyframes bopB {
+  0% { transform: scale(0.9); }
+  80%, 100% { transform: scale(1) rotateZ(-3deg); }
+}
+`;
 
 const SelectPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -35,15 +83,22 @@ const SelectPage: React.FC = () => {
         <ArrowBackIcon />
       </IconButton>
       
-      <Typography variant="h4" sx={{ mb: 2, mt: 2, fontWeight: 'bold', fontFamily: 'Jua, sans-serif' }}>
+      <Typography variant="h2" sx={{ mb: 2, mt: 2, fontWeight: 'bold', fontFamily: 'Jua, sans-serif' }}>
         {gameName || '게임 이름'}
       </Typography>
 
-      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 30, mb: 10, mt: 15 }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20, mb: 10, mt: 15 }}>
       <Box component="button" onClick={handleGameImageClick} sx={{ border: 'none', padding: 0, background: 'none' }}>
-    <Card sx={{ width: 300 }}>
-      <CardMedia component="img" height="140" image={gameimg} alt={gameName} />
-    </Card>
+     <StyledH1>
+      <span>T</span>
+      <span>u</span>
+      <span>t</span>
+      <span>o</span>
+      <span>r</span>
+      <span>i</span>
+      <span>a</span>
+      <span>l</span>
+    </StyledH1>
   </Box>
         <Box
           component="button"

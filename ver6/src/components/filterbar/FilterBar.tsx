@@ -87,7 +87,7 @@ const FilterBar: React.FC<FilterBarProps> = ({ numberOfPlayers, setNumberOfPlaye
             ))}
           </CustomSelect>
         </FormControl>
-        <div style={{ flexGrow: 1, display: 'flex', justifyContent: 'flex-end' }}>
+        <div style={{ flexGrow: 1, display: 'flex', justifyContent: 'flex-start', marginLeft: '60px' }}>
             {oldTagList.map(tag => (
               <Chip 
                 key={tag} 

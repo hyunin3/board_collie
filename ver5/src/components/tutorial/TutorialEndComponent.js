@@ -1,7 +1,7 @@
 import { IconButton, Box, Modal } from '@mui/material';
 import { KeyboardArrowLeft, Replay, Logout } from '@mui/icons-material';
 import styled from 'styled-components';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 /* 스타일 */
 const TutorialEndCotainer = styled.div`
@@ -145,7 +145,7 @@ const EndingButtonIconStyle = {
     color: '#000000',
 };
 
-function TutorialEndComponent({image, content, addInfo, setPage, prePage}) {
+function TutorialEndComponent({image, content, addInfo, setBgmIsPlaying, setPage, prePage}) {
 
         /* 이전 페이지 이동 */
         function moveBackPage() {
@@ -170,6 +170,11 @@ function TutorialEndComponent({image, content, addInfo, setPage, prePage}) {
         function exit() {
             window.history.back();
         };
+
+        // 들어오자마자 배경음악 끄기
+        useEffect(() => {
+            setBgmIsPlaying('wait');
+        }, [setBgmIsPlaying])
 
     return (
         <TutorialEndCotainer>

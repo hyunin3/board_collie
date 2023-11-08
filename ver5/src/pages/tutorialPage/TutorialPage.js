@@ -79,6 +79,13 @@ const BackModalButtonStyle = {
     fontSize: '1.5vw',
     fontFamily: 'Jua, sans-serif'
 };
+const MuteButton = styled.div`
+    position: absolute;
+    z-index: 9999;
+    top: 3vh;
+    right: 3vw;
+    font-size: 3vw;
+`;
 
 /* 튜토리얼 나가기 */
 function exitTutorial() {
@@ -94,6 +101,15 @@ function TutorialPage() {
 
     /* 배경 사진 관련 */
     const [backgroundImage, setBackgroundImage] = useState('');
+
+    /* 배경 음악 관련 */
+    const [bgmIsPlaying, setBgmIsPlaying] = useState('wait');
+    function bgmOn() {
+        setBgmIsPlaying('on');
+    }
+    function bgmOff() {
+        setBgmIsPlaying('off');
+    }
 
     /* 돌아가기 버튼 모달 관련 */
     const [backModalOpen, setBackModalOpen] = useState(false);
@@ -145,10 +161,26 @@ function TutorialPage() {
                     </BackModalButton>
                 </Box>
             </Modal>
+            <MuteButton>
+                {
+                    (bgmIsPlaying === 'on') ?
+                        <span onClick={bgmOff}>🔊</span>
+                    :
+                    (bgmIsPlaying === 'off') ?
+                        <span onClick={bgmOn}>🔈</span>
+                    :
+                        null
+                }
+            </MuteButton>
             <MainContent>
             {
                 (params.title === '스플렌더') ? // Splendor 스플렌더
-                    <ID72 players={players} setBackgroundImage={setBackgroundImage}/>
+                    <ID72
+                        players={players}
+                        bgmIsPlaying={bgmIsPlaying}
+                        setBackgroundImage={setBackgroundImage}
+                        setBgmIsPlaying={setBgmIsPlaying}
+                    />
                 :
                     null
             }

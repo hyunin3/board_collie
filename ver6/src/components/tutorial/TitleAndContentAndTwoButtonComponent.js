@@ -56,6 +56,9 @@ const Content = styled.div`
 
     text-align: center;
     font-size: 3vw;
+
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
 `;
 const RedTextContent = styled.span`
     color: red;

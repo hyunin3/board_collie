@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { IconButton, Box, Divider, Typography, Chip } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import gameimg from '../../assets/splendor.png'
@@ -24,6 +24,13 @@ type Game = {
     name: string;
     description: string;
   }[];
+  similarGames: SimilarGame[];
+};
+
+type SimilarGame = {
+  gameId: number;
+  gameTitleKor: string;
+  gameImage: string | null;
 };
 
 type GameFromServer = {
@@ -59,6 +66,11 @@ const transformData = (dataFromServer: GameFromServer): Game => {
       name: tag.tagName,
       description: tag.tagDescription,
     })),
+    similarGames: dataFromServer.similarGame.map(game => ({
+      gameId: game.gameId,
+      gameTitleKor: game.gameTitleKor,
+      gameImage: game.gameImage
+    })),
   };
 };
 
@@ -84,7 +96,7 @@ const GameDetailPage: React.FC = () => {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: 500,
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
@@ -120,7 +132,8 @@ const GameDetailPage: React.FC = () => {
   };
 
   return (
-    <Box sx={{ padding: '20px', display: 'flex', flexDirection: 'row', marginTop: '90px' }}>
+    <div style={{ overflow: 'hidden', height: '100vh' }}>
+    <Box sx={{ height: '80vh', padding: '20px', display: 'flex', flexDirection: 'row', marginTop: '90px' }}>
      <Box sx={{ flex: 2, marginRight: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
   <IconButton onClick={goBack} aria-label="뒤로 가기" sx={{ alignSelf: 'flex-start', mb: 2 }}>
     <ArrowBackIcon />
@@ -188,7 +201,7 @@ const GameDetailPage: React.FC = () => {
 </Box>
 
       <Divider orientation="vertical" flexItem />
-      <Box sx={{ flex: 3, display: 'flex', flexDirection: 'column', justifyContent: 'start', pl: 10, mt: 7 }}>
+      <Box sx={{ flex: 3, display: 'flex', flexDirection: 'column', justifyContent: 'start', pl: 5, mt: 3, overflowY: 'auto' }} className="hide-scrollbar">
       
       <Typography variant="h5" sx={{ fontFamily: 'Jua, sans-serif', mb: 3 }}>
         테마 및 진행방식
@@ -200,7 +213,15 @@ const GameDetailPage: React.FC = () => {
               key={tag.id}
               label={tag.name}
               onClick={() => handleOpen(tag.name, tag.description)}
-              sx={{ backgroundColor: '#CCF38C', mr: 1, mb: 1 }}
+              sx={{ 
+                backgroundColor: '#CCF38C', 
+                mr: 1, 
+                mb: 1, 
+                fontFamily: 'Jua, sans-serif', 
+                fontSize: '1.2rem', 
+                height: '40px', // 칩의 높이 조정
+                padding: '0 10px', // 내부 여백 조정
+              }}
             />
             
             ))
@@ -209,18 +230,36 @@ const GameDetailPage: React.FC = () => {
              )}
           </div>
           
-          <Typography variant="h5" sx={{ fontFamily: 'Jua, sans-serif', mb: 3, mt: 3 }}>
+          <Typography variant="h5" sx={{ fontFamily: 'Jua, sans-serif', mb: 2.5, mt: 3 }}>
             게임평 요약
           </Typography>
             {game && (
-          <Typography sx={{ fontFamily: 'Jua, sans-serif', mb: 4 }}>
+          <Typography sx={{ fontSize: '1.25rem', fontFamily: 'YESGothic-Regular', mb: 3 }}>
             {game.evaluation}
           </Typography>
           )}
 
-          <Typography variant="h5" sx={{ fontFamily: 'Jua, sans-serif' }}>
+          <Typography variant="h5" sx={{ fontFamily: 'Jua, sans-serif', mb: 3 }}>
             유사한 다른 게임
           </Typography>
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center' }}>
+            {game?.similarGames.map(similarGame => (
+          <Box key={similarGame.gameId} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', m: 1 }}>
+            <Link to={`/game/${similarGame.gameId}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+            <img
+              src={similarGame.gameImage || gameimg} 
+              alt={similarGame.gameTitleKor}
+              style={{ width: '150px', height: '150px', objectFit: 'cover', borderRadius: '10px' }}
+              />
+            </Link>
+          <Typography sx={{ mt: 1, fontFamily: 'Jua, sans-serif', fontSize: '1.2rem' }}>
+          <Link to={`/game/${similarGame.gameId}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+            {similarGame.gameTitleKor}
+          </Link>
+          </Typography>
+            </Box>
+              ))}
+            </Box>
         </Box>
 
         <Modal
@@ -230,16 +269,17 @@ const GameDetailPage: React.FC = () => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography id="modal-modal-title" variant="h6" component="h2" sx={{ fontSize: '1.5rem' }} >
            {selectedTagName}
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          <Typography id="modal-modal-description" sx={{ mt: 2, fontSize: '1.1rem' }} >
             {selectedTagDescription}
           </Typography>
         </Box>
       </Modal>
 
       </Box>
+      </div>
       );
     }
 

@@ -45,7 +45,7 @@ const SplenderContainer = styled.div`
     height: 100%;
 `;
 
-function Splender({players, setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
+function ID72({players, setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
 
     const settingIndex = players > 4 ? 2 : players - 2;
     const [page, setPage] = useState(0);
@@ -183,7 +183,7 @@ function Splender({players, setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) 
         [ // 6: 선택 액션 설명
             'TitleAndContenAndTwoButtonComponent', // 템플릿
             '개발 카드를 찜하시겠습니까?', // title
-            '테이블에 펼쳐진 개발 카드나\n개발 카드 더미의 맨 위 카드 1장을 골라 손에 듭니다!\n이때 황금 조커 토큰을 하나 가져오세요.\n\n손에는 <RedText>3장까지만</RedText> 들 수 있습니다.\n\n빈 자리에 같은 단계의 카드를 새로 펼쳐주세요.', // content
+            '테이블에 펼쳐진 개발 카드나\n개발 카드 더미의 맨 위 카드 1장을 골라 손에 듭니다!\n이때 황금 조커 토큰을 하나 가져오세요.\n손에는 <RedText>3장까지만</RedText> 들 수 있습니다.\n\n빈 자리에 같은 단계의 카드를 새로 펼쳐주세요.', // content
             [ // additional information
                 '💎 황금 조커 토큰은 다른 보석 토큰을 대체해 사용할 수 있습니다.',
                 '💎 찜할 카드의 내용을 다른 플레이어에게 보여주지 않아도 됩니다.',
@@ -269,7 +269,7 @@ function Splender({players, setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) 
         [ // 13: 선택 액션 설명
             'TitleAndContenAndTwoButtonComponent', // 템플릿
             '개발 카드를 찜하시겠습니까?', // title
-            '테이블에 펼쳐진 개발 카드나\n개발 카드 더미의 맨 위 카드 1장을 골라 손에 듭니다!\n이때 황금 조커 토큰을 하나 가져오세요.\n\n손에는 <RedText>3장까지만</RedText> 들 수 있습니다.\n\n빈 자리에 같은 단계의 카드를 새로 펼쳐주세요.', // content
+            '테이블에 펼쳐진 개발 카드나\n개발 카드 더미의 맨 위 카드 1장을 골라 손에 듭니다!\n이때 황금 조커 토큰을 하나 가져오세요.\n손에는 <RedText>3장까지만</RedText> 들 수 있습니다.\n\n빈 자리에 같은 단계의 카드를 새로 펼쳐주세요.', // content
             [ // additional information
                 '💎 황금 조커 토큰은 다른 보석 토큰을 대체해 사용할 수 있습니다.',
                 '💎 찜할 카드의 내용을 다른 플레이어에게 보여주지 않아도 됩니다.',
@@ -525,4 +525,4 @@ function Splender({players, setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) 
     )
 }
 
-export default Splender;
+export default ID72;

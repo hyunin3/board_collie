@@ -60,6 +60,9 @@ const InfoText = styled.div`
     width: 50%;
     margin-left: 10%;
     font-size: 2vw;
+
+    /* 문자열 내 줄바꿈(\n) 적용 */
+    white-space: pre-wrap;
 `;
 
 function InfoComponent({type, info}) {

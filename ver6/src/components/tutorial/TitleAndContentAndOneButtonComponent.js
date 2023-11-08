@@ -1,5 +1,7 @@
 import { IconButton } from '@mui/material';
 import { KeyboardArrowLeft } from '@mui/icons-material';
+import { useState, useEffect } from "react";
+import reactStringReplace from 'react-string-replace';
 import styled from 'styled-components';
 
 /* 스타일 */
@@ -31,7 +33,7 @@ const MainContainer = styled.div`
 `;
 const Title = styled.div`
     margin-top: 5%;
-    height: 25%;
+    height: 20%;
     width: 100%;
 
     display: flex;
@@ -44,7 +46,7 @@ const Title = styled.div`
 const Content = styled.div`
     margin-top: 5%;
     margin-bottom: 5%;
-    height: 46%;
+    height: 51%;
     width: 100%;
 
     display: flex;
@@ -53,6 +55,12 @@ const Content = styled.div`
 
     text-align: center;
     font-size: 3vw;
+
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+`;
+const RedTextContent = styled.span`
+    color: red;
 `;
 const Button = styled.div`
     height: 10%;
@@ -82,6 +90,16 @@ function TitleAndContentAndOneButtonComponent({title, content, buttonPageInfo, b
         setPage(nextFlow);
     }
 
+    const [highlightedContent, setHighlightedContent] = useState(content);
+
+    // content 강조 부분
+    useEffect(() => {
+        const parsedContent = reactStringReplace(content, /<RedText>(.*?)<\/RedText>/g, (match, i) => (
+            <RedTextContent key={i}>{match}</RedTextContent>
+        ));
+        setHighlightedContent(parsedContent);
+    }, [content]);
+
     return (
         <TitleAndContentAndOneButtonCotainer>
             {/* 뒤로 가기 버튼 */}
@@ -97,7 +115,7 @@ function TitleAndContentAndOneButtonComponent({title, content, buttonPageInfo, b
             {/* 콘텐츠 */}
             <MainContainer>
                 <Title>{title}</Title>
-                <Content>{content}</Content>
+                <Content><p>{highlightedContent}</p></Content>
                 <Button onClick={() => moveNextFlow(buttonPageInfo)}>{buttonTextInfo}</Button>
             </MainContainer>
 

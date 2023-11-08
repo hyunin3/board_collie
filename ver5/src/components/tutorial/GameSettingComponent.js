@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IconButton } from '@mui/material';
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
 import styled from 'styled-components';
+import reactStringReplace from 'react-string-replace';
 import InfoComponent from '../../components/tutorial/InfoComponent';
 
 /* 스타일 */
@@ -75,7 +76,6 @@ const SkipButton = styled.span`
     border-radius: 10px;
     font-family: 'Jolly Lodger', cursive;
 `;
-
 const BackButtonBox = styled.div`
     display: flex;
     justify-content: center;
@@ -96,6 +96,9 @@ const MoveButtonIconStyle = {
     fontSize: '3.5vw',
     color: '#F7EEF6',
 };
+const RedTextContent = styled.span`
+    color: red;
+`;
 
 
 function GameSettingComponent({settingList, infoList, startStep, setSettingStartPage, setPage, prePage, nextPage}) {
@@ -128,6 +131,15 @@ function GameSettingComponent({settingList, infoList, startStep, setSettingStart
         setPage(nextPage);
     };
 
+    /* 설명 강조 부분 */
+    const [highlightedText, setHighlightedText] = useState(settingList[step][1]);
+    useEffect(() => {
+        const parsedText = reactStringReplace(settingList[step][1], /<RedText>(.*?)<\/RedText>/g, (match, i) => (
+            <RedTextContent key={i}>{match}</RedTextContent>
+        ));
+        setHighlightedText(parsedText);
+    }, [step, settingList]);
+
     return (
         <GameSettingContainer>
             {/* 뒤로 가기 버튼 */}
@@ -146,7 +158,7 @@ function GameSettingComponent({settingList, infoList, startStep, setSettingStart
                     {infoList !== null && <InfoComponent type='setting' info={infoList}/>}
                 </Title>
                 <StepImage src={settingList[step][0]}></StepImage>
-                <StepTextBox><StepText>{settingList[step][1]}</StepText></StepTextBox>
+                <StepTextBox><StepText>{highlightedText}</StepText></StepTextBox>
                 {
                     step !== settingList.length - 1
                     &&

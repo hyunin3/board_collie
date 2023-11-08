@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import ID72 from "./games/ID72";
 import { Box, Modal, Button } from '@mui/material';
+
+import ID27 from './games/ID27';
+import ID72 from "./games/ID72";
 
 
 /* 스타일 */
@@ -32,7 +34,7 @@ const BackgroundLayer = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(247, 238, 246, 0.55);
+    background-color: rgba(255, 255, 255, 0.3);
 `;
 const BackButton = styled.div`
     position: absolute;
@@ -174,9 +176,16 @@ function TutorialPage() {
             </MuteButton>
             <MainContent>
             {
-                (params.title === '스플렌더') ? // Splendor 스플렌더
+                (params.title === '72') ? // Splendor 스플렌더
                     <ID72
                         players={players}
+                        bgmIsPlaying={bgmIsPlaying}
+                        setBackgroundImage={setBackgroundImage}
+                        setBgmIsPlaying={setBgmIsPlaying}
+                    />
+                :
+                (params.title === '27') ? // Rummikub 루미큐브
+                    <ID27
                         bgmIsPlaying={bgmIsPlaying}
                         setBackgroundImage={setBackgroundImage}
                         setBgmIsPlaying={setBgmIsPlaying}

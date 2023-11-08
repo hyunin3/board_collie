@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from '../../components/searchbar/SearchBar';
-import { Divider, Grid, Chip, Stack } from '@mui/material';
+import { Divider, Grid, Chip } from '@mui/material';
 import { Link } from 'react-router-dom';
 import './SearchResultPage.css';
 import RecentGamesList from '../../components/recentgameslist/RecentGamesList';
@@ -158,23 +158,31 @@ const SearchResultsPage: React.FC = () => {
           {visibleResults.map((item, index) => (
             <div key={item.name} style={{ marginLeft: '10vw' }} >
               <div style={{ display: 'flex', alignItems: 'center', padding: '20px' }}>
-                <img src={item.image} alt={item.image} style={{ width: '100px', height: '100px', marginRight: '20px' }} />
-                <div>
-                  <h3>
-                    <Link 
-                      to={`/game/${item.id}`} 
-                      style={{ textDecoration: 'none', color: 'inherit' }}
-                      onClick={() => handleGameClick(item.id)}
-                    >
-                      {item.name}
-                    </Link>
-                  </h3>
-                  <Stack direction="row" spacing={2} style={{ marginBottom: '20px', flexWrap: 'wrap' }}>
-                    {item.tags.map(tag => (
-                    <Chip key={tag} label={tag} style={{ marginBottom: '8px' }} />
-                      ))}
-                  </Stack>
+              <Link 
+                to={`/game/${item.id}`} 
+                style={{ textDecoration: 'none', color: 'inherit' }}
+                onClick={() => handleGameClick(item.id)}
+                >
+                <img src={item.image} alt={item.name} style={{ width: '100px', height: '100px', marginRight: '20px' }} />
+              </Link>
+
+              <div>
+                <h3>
+                  <Link 
+                    to={`/game/${item.id}`} 
+                    style={{ textDecoration: 'none', color: 'inherit' }}
+                    onClick={() => handleGameClick(item.id)}
+                  >
+                    {item.name}
+                  </Link>
+                </h3>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', marginBottom: '20px' }}>
+                  {item.tags.map(tag => (
+                  <Chip key={tag} label={tag} style={{ margin: '4px', marginBottom: '8px', backgroundColor: '#dce7c7' }} />
+                    ))}
+                  </div>
                 </div>
+
               </div>
               {index < visibleResults.length - 1 && <Divider />}
             </div>
@@ -185,7 +193,7 @@ const SearchResultsPage: React.FC = () => {
       </Grid>
       <Grid item container xs={3} style={{ alignItems: 'flex-start' }}>
         <Divider orientation="vertical" flexItem sx={{ height: '100%' }} />
-        <Grid item xs style={{ overflowY: 'auto', maxHeight: '90vh', scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }} >
+        <Grid item xs style={{ overflowY: 'auto', maxHeight: '90vh', scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }} className="hide-scrollbar">
           <div style={{ textAlign: 'center' }}>
             <h4>최근 본 게임</h4>
             <RecentGamesList />

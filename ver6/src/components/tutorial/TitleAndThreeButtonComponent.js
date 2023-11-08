@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import reactStringReplace from 'react-string-replace';
 
 /* 스타일 */
-const TitleAndTwoButtonCotainer = styled.div`
+const TitleAndThreeButtonCotainer = styled.div`
     display: flex;
     justify-content: space-between;
     height: 100%;
@@ -34,7 +34,7 @@ const MainContainer = styled.div`
 const Title = styled.div`
     margin-top: 5%;
     margin-bottom: 5%;
-    height: 62%;
+    height: 48%;
     width: 100%;
 
     display: flex;
@@ -48,7 +48,7 @@ const RedTextContent = styled.span`
     color: red;
 `;
 const Buttons = styled.div`
-    height: 28%;
+    height: 42%;
     width: 100%;
 `;
 const ChoiceButton = styled.div`
@@ -66,8 +66,8 @@ const ChoiceButton = styled.div`
     background: #CCF38C;
 `;
 
-function TitleAndTwoButtonComponent({title, buttonInfo, setPage, prePage}) {
-
+function TitleAndThreeButtonComponent({title, buttonInfo, setPage, prePage}) {
+    
     /* 이전 페이지 이동 */
     function moveBackPage() {
         setPage(prePage);
@@ -88,7 +88,7 @@ function TitleAndTwoButtonComponent({title, buttonInfo, setPage, prePage}) {
     }, [title]);
 
     return (
-        <TitleAndTwoButtonCotainer>
+        <TitleAndThreeButtonCotainer>
             {/* 뒤로 가기 버튼 */}
             <MovePageButtonBox>
                 <IconButton
@@ -113,8 +113,8 @@ function TitleAndTwoButtonComponent({title, buttonInfo, setPage, prePage}) {
 
             {/* 앞으로 가기 버튼 */}
             <MovePageButtonBox/>
-        </TitleAndTwoButtonCotainer>
+        </TitleAndThreeButtonCotainer>
     )
 }
 
-export default TitleAndTwoButtonComponent;
+export default TitleAndThreeButtonComponent;
