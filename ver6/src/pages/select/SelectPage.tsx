@@ -56,17 +56,23 @@ span:last-child {
 const SelectPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const validIds = [72, 27]; // 유효한 ID 목록
   const gameName = sessionStorage.getItem(`gameName-${id}`) || '게임 이름';
-  const validTitles = ['스플렌더', ];
 
   const goBack = () => {
     navigate(-1);
   };
 
   const handleGameImageClick = () => {
-    // 게임 이름이 유효한지 확인
-    if (gameName && validTitles.includes(gameName)) {
-      navigate(`/tutorial/${encodeURIComponent(gameName)}`);
+    // id가 undefined인 경우를 처리
+    if (!id) {
+      navigate('/notfound2');
+      return;
+    }
+
+    // 게임 ID가 유효한지 확인
+    if (validIds.includes(parseInt(id))) {
+      navigate(`/tutorial/${id}`); // ID를 URL 경로에 사용
     } else {
       navigate('/notfound2');
     }

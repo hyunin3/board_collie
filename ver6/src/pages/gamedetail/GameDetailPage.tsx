@@ -168,7 +168,7 @@ const GameDetailPage: React.FC = () => {
 
   return (
     <div style={{ overflow: 'hidden', height: '100vh' }}>
-    <Box sx={{ height: '80vh', padding: '20px', display: 'flex', flexDirection: 'row', marginTop: '90px' }}>
+    <Box sx={{ height: '80vh', padding: '20px', display: 'flex', flexDirection: 'row', marginTop: '100px' }}>
      <Box sx={{ flex: 2, marginRight: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
   <IconButton onClick={goBack} aria-label="뒤로 가기" sx={{ alignSelf: 'flex-start', mb: 2 }}>
     <ArrowBackIcon />

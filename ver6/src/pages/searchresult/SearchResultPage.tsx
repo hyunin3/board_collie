@@ -156,7 +156,7 @@ const SearchResultsPage: React.FC = () => {
           className="hide-scrollbar"
         >
           {visibleResults.map((item, index) => (
-            <div key={item.name} style={{ marginLeft: '10vw' }} >
+            <div key={item.name} style={{ marginLeft: '5vw' }} >
               <div style={{ display: 'flex', alignItems: 'center', padding: '20px' }}>
               <Link 
                 to={`/game/${item.id}`} 
@@ -193,7 +193,7 @@ const SearchResultsPage: React.FC = () => {
       </Grid>
       <Grid item container xs={3} style={{ alignItems: 'flex-start' }}>
         <Divider orientation="vertical" flexItem sx={{ height: '100%' }} />
-        <Grid item xs style={{ overflowY: 'auto', maxHeight: '90vh', scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }} className="hide-scrollbar">
+        <Grid item xs style={{ overflowY: 'auto', maxHeight: '80vh', scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }} className="hide-scrollbar">
           <div style={{ textAlign: 'center' }}>
             <h4>최근 본 게임</h4>
             <RecentGamesList />
