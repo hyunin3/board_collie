@@ -47,7 +47,7 @@ function ID33({bgmIsPlaying, setBackgroundImage, setBgmIsPlaying}) {
     const setting = [
         [ // 0
             setting1,
-            '거북이말을 1개씩 선택하고, 같은 색의 명함 카드를 가지고 가주세요.\n\n(2, 3인이 플레이할 때는 각각 2개씩의 거북이를 갖고 플레이합니다.\n2개의 거북이는 한 차례씩 순서대로 움직일 수 있습니다.)'
+            '거북이 말을 1개씩 선택하고, 같은 색의 명함 카드를 가지고 가주세요.\n\n(2, 3인이 플레이할 때는 각각 2개씩의 거북이를 갖고 플레이합니다.\n2개의 거북이는 한 차례씩 순서대로 움직일 수 있습니다.)'
         ],
         [ // 1
             setting2,
@@ -55,7 +55,7 @@ function ID33({bgmIsPlaying, setBackgroundImage, setBgmIsPlaying}) {
         ],
         [ // 2
             setting3,
-            '24장의 알 카드를 잘 섞은 후 <RedText>4장을 빼고</RedText> 게임판 위에 뒤집어 올려 놓습니다.'
+            '24장의 알 카드를 잘 섞은 후 <RedText>4장을 빼고</RedText> 게임판 위에 뒤집어 올려놓습니다.'
         ],
     ];
     const [settingStartPage, setSettingStartPage] = useState(0);
@@ -68,7 +68,7 @@ function ID33({bgmIsPlaying, setBackgroundImage, setBgmIsPlaying}) {
         ],
         [
             info2,
-            '거묵이말, 명함 카드\n각 7개'
+            '거묵이 말, 명함 카드\n각 7개'
         ],
         [
             info3,
@@ -91,14 +91,14 @@ function ID33({bgmIsPlaying, setBackgroundImage, setBgmIsPlaying}) {
         ],
         [ // 1
             'TitleComponent', // 템플릿
-            '<TypeIt>마헤는 🐢거북이들🐢이<br/>서로 많은 알🥚을 낳고자 경쟁하는<br/>레이싱 게임입니다.</TypeIt>', // 타이틀 내용
+            '<TypeIt>마헤는 거북이들이<br/>서로 많은 알을 낳고자 경쟁하는<br/>레이싱 게임입니다.</TypeIt>', // 타이틀 내용
             0, // 이전 페이지 flow 번호
             2 // 다음 페이지 flow 번호
         ],
         [ // 2
             'ImageAndContentComponent', // 템플릿
             contentImage1, // image
-            '<TypeIt>각 거북이들은 서로 업고 업히며<br/>섬 주위를 돌게 됩니다.</TypeIt>', // content
+            '<TypeIt>거북이들은 서로 업고 업히며<br/>섬 주위를 돌게 됩니다.</TypeIt>', // content
             1, // 이전 페이지 flow 번호
             3 // 다음 페이지 flow 번호
         ],
@@ -111,7 +111,7 @@ function ID33({bgmIsPlaying, setBackgroundImage, setBgmIsPlaying}) {
         ],
         [ // 4
             'TitleComponent', // 템플릿
-            '<TypeIt>가장 많은 알을 낳은 거북이가<br/>🏆승리🏆합니다.</TypeIt>', // 타이틀 내용
+            '<TypeIt>가장 많은 알을 낳은 거북이가<br/>승리합니다.</TypeIt>', // 타이틀 내용
             3, // 이전 페이지 flow 번호
             5 // 다음 페이지 flow 번호
         ],
@@ -123,13 +123,13 @@ function ID33({bgmIsPlaying, setBackgroundImage, setBgmIsPlaying}) {
         ],
         [ // 6
             'TitleComponent', // 템플릿
-            '이제 게임을 시작해봅시다!', // 타이틀 내용
+            '이제 게임을 시작해 봅시다!', // 타이틀 내용
             5, // 이전 페이지 flow 번호
             7 // 다음 페이지 flow 번호
         ],
         [ // 7
             'TitleComponent', // 템플릿
-            '<TypeIt>주사위🎲 3개 중<br/>하나만 굴려주세요.</TypeIt>', // 타이틀 내용
+            '<TypeIt>주사위 3개 중<br/>하나만 굴려주세요.</TypeIt>', // 타이틀 내용
             6, // 이전 페이지 flow 번호
             8 // 다음 페이지 flow 번호
         ],
@@ -141,7 +141,7 @@ function ID33({bgmIsPlaying, setBackgroundImage, setBgmIsPlaying}) {
         ],
         [ // 9
             'TitleAndTwoButtonComponent', // 템플릿
-            '주사위 눈의 합이 <RedText>8 이상</RedText>이 되면\n<RedText>뗏목으로</RedText> 돌아가야 합니다.\n\n처음 나온 수에 따라\n주사위를 더 굴릴지 말지\n결정해주세요.', // title
+            '주사위 눈의 합이 <RedText>8 이상</RedText>이 되면\n<RedText>뗏목으로</RedText> 돌아가야 합니다.\n\n처음 나온 수에 따라\n주사위를 더 굴릴지 말지\n결정해 주세요.', // title
             [ // 버튼 내용
                 [10, '한 번 더!'],
                 [14, '멈출래요.']
@@ -162,7 +162,7 @@ function ID33({bgmIsPlaying, setBackgroundImage, setBgmIsPlaying}) {
         [ // 11
             'TitleAndContenAndTwoButtonComponent', // 템플릿
             '축하드립니다!', // title
-            '주사위를 두 번 던지면\n<RedText>주사위 합 x 2</RedText>만큼\n앞으로 전진할 수 있습니다.', // content
+            '주사위를 두 번 던지면\n<RedText>주사위 합 x 2</RedText>만큼\n앞으로 나갈 수 있습니다.', // content
             null, // additional information
             [ // 버튼 내용
                 [12, '한 번 더!'],
@@ -172,11 +172,11 @@ function ID33({bgmIsPlaying, setBackgroundImage, setBgmIsPlaying}) {
         ],
         [ // 12
             'TitleAndContenAndTwoButtonComponent', // 템플릿
-            '한번 더 굴리실건가요?', // title
-            '마찬가지로 <RedText>8 이상이 나오면</RedText>\n<RedText>뗏목으로</RedText> 돌아가야 합니다!\n\n7 이하라면 <RedText>주사위 합 x 3</RedText>만큼 갈 수 있어요!\n신중히 결정해주세요!', // content
+            '한 번 더 굴리실건가요?', // title
+            '마찬가지로 <RedText>8 이상이 나오면</RedText>\n<RedText>뗏목으로</RedText> 돌아가야 합니다!\n\n7 이하라면 <RedText>주사위 합 x 3</RedText>만큼 갈 수 있어요!\n신중히 결정해 주세요!', // content
             null, // additional information
             [ // 버튼 내용
-                [13, '못참지'],
+                [13, '못 참지'],
                 [16, '아무래도 여기까지만 할래요.']
             ],
             11 // 이전 페이지 flow 번호
@@ -184,7 +184,7 @@ function ID33({bgmIsPlaying, setBackgroundImage, setBgmIsPlaying}) {
         [ // 13
             'TitleAndContentAndOneButtonComponent', // 템플릿
             '마지막 주사위를 굴려주세요!', // 타이틀 내용
-            '주사위의 합이 <RedText>7 이하</RedText>라면\n<RedText>주사위 합 x 3</RedText>만큼 전진해주세요!\n\n만약 주사위 합이 <RedText>8 이상</RedText>이라면\n안타깝지만 <RedText>뗏목으로</RedText> 돌아가야 합니다.', // content
+            '주사위의 합이 <RedText>7 이하</RedText>라면\n<RedText>주사위 합 x 3</RedText>만큼 전진해 주세요!\n\n만약 주사위 합이 <RedText>8 이상</RedText>이라면\n안타깝지만 <RedText>뗏목으로</RedText> 돌아가야 합니다.', // content
             17, '확인했어요.',
             12 // 이전 페이지 flow 번호
         ],
@@ -197,33 +197,33 @@ function ID33({bgmIsPlaying, setBackgroundImage, setBgmIsPlaying}) {
         ],
         [ // 15
             'TitleAndContentAndOneButtonComponent', // 템플릿
-            '이런! 안타깝군요..', // 타이틀 내용
-            '주사위 합이 8을 넘으면 뗏목으로 돌아가야 합니다...\n\n다음 차례에서 다시 1번부터 출발해주시면 됩니다.', // content
+            '이런! 안타깝군요...', // 타이틀 내용
+            '주사위 합이 8을 넘으면 뗏목으로 돌아가야 합니다...\n\n다음 차례에서 다시 1번부터 출발해 주시면 됩니다.', // content
             18, '확인했어요.',
             10 // 이전 페이지 flow 번호
         ],
         [ // 16
             'TitleAndContentAndOneButtonComponent', // 템플릿
             '좋습니다!', // 타이틀 내용
-            '<RedText>주사위 합 x 2</RedText>만큼 전진해주세요!', // content
+            '<RedText>주사위 합 x 2</RedText>만큼 전진해 주세요!', // content
             17, '확인했어요.',
             12 // 이전 페이지 flow 번호
         ],
         [ // 17
             'TitleAndContentAndOneButtonComponent', // 템플릿
             '한 바퀴를 다 돌았나요?', // 타이틀 내용
-            '만약 <RedText>21번 칸</RedText>에 도착하거나 지나간다면\n<RedText>알 카드를 한 장</RedText> 가져가주세요!\n\n카드에 적힌 점수는 마지막에 공개합니다.\n점수가 보이지 않게 보관해주세요.', // content
+            '만약 <RedText>21번 칸</RedText>에 도착하거나 지나간다면\n<RedText>알 카드를 한 장</RedText> 가져가 주세요!\n\n카드에 적힌 점수는 마지막에 공개합니다.\n점수가 보이지 않게 보관해 주세요.', // content
             18, '확인했어요.',
             7 // 이전 페이지 flow 번호
         ],
         [ // 18
             'TitleAndContenAndThreeButtonComponent', // 템플릿
             '다음 플레이어 차례입니다.', // title
-            '전과 같이 주사위를 하나씩 던지며\n다음 주사위를 굴릴지 말지 정하고 전진해주세요!', // content
+            '전과 같이 주사위를 하나씩 던지며\n다음 주사위를 굴릴지 말지 정하고 전진해 주세요!', // content
             null, // additional information
             [ // 버튼 내용
                 [19, '주사위 던지는 방법을 다시 보고 싶어요.'],
-                [29, '좀 더 전략적으로 플레이 해보고 싶어요.'],
+                [29, '좀 더 전략적으로 플레이해 보고 싶어요.'],
                 [20, '이동해야 할 칸에 다른 거북이가 있다면?'],
             ],
             7 // 이전 페이지 flow 번호
@@ -245,7 +245,7 @@ function ID33({bgmIsPlaying, setBackgroundImage, setBgmIsPlaying}) {
         ],
         [ // 21
             'TitleComponent', // 템플릿
-            '밑에 있는 거북이의 차례가 되면,\n맨 위에 업힌 거북이가\n두번째, 세번째 주사위를 굴릴지 말지\n결정합니다.', // 타이틀 내용
+            '밑에 있는 거북이의 차례가 되면,\n맨 위에 업힌 거북이가\n두 번째, 세 번째 주사위를 굴릴지 말지\n결정합니다.', // 타이틀 내용
             20, // 이전 페이지 flow 번호
             22 // 다음 페이지 flow 번호
         ],
@@ -263,45 +263,45 @@ function ID33({bgmIsPlaying, setBackgroundImage, setBgmIsPlaying}) {
         ],
         [ // 24
             'TitleAndContenAndTwoButtonComponent', // 템플릿
-            '이제 순서대로 주사위를 던지며\n게임을 진행해주세요!', // title
+            '이제 순서대로 주사위를 던지며\n게임을 진행해 주세요!', // title
             '알 카드가 다 떨어지면 저를 다시 불러주세요!', // content
             null, // additional information
             [ // 버튼 내용
-                [33, '질문있어요!'],
+                [33, '질문 있어요!'],
                 [25, '알 카드가 떨어졌어요!']
             ],
             23// 이전 페이지 flow 번호
         ],
         [ // 25
             'TitleComponent', // 템플릿
-            '<TypeIt>이제 🧨마지막 레이스🧨입니다.</TypeIt>', // 타이틀 내용
+            '<TypeIt>이제 마지막 레이스입니다.</TypeIt>', // 타이틀 내용
             24, // 이전 페이지 flow 번호
             26 // 다음 페이지 flow 번호
         ],
         [ // 26
             'TitleAndContentAndOneButtonComponent', // 템플릿
-            '다음 순서부터 다시 게임을 진행해주세요!', // 타이틀 내용
+            '다음 순서부터 다시 게임을 진행해 주세요!', // 타이틀 내용
             '지금부터\n제일 먼저 21번 칸에 도착하거나 지나는 사람이\n마지막 점수인 <RedText>7점</RedText>을 얻고\n게임은 끝납니다.', // content
             27, '마지막 레이스까지 끝났습니다.',
             25 // 이전 페이지 flow 번호
         ],
         [ // 27
             'TitleComponent', // 템플릿
-            '<TypeIt>이제 획득한 알 카드들을 뒤집어<br/>🎯점수를 환산🎯해주세요!</TypeIt>', // 타이틀 내용
+            '<TypeIt>이제 획득한 알 카드들을 뒤집어<br/>점수를 환산해 주세요!</TypeIt>', // 타이틀 내용
             26, // 이전 페이지 flow 번호
             28 // 다음 페이지 flow 번호
         ],
         [ // 28
             'TutorialEndComponent', // 템플릿
             title, // image
-            '점수가 가장 높은 플레이어가 🎉승자🎉입니다!', // content
+            '점수가 가장 높은 플레이어가 승자입니다!', // content
             null, // additional information
             27 // 이전 페이지 flow 번호
         ],
         [ // 29
             'TitleAndContenAndTwoButtonComponent', // 템플릿
             '베리언트', // title
-            '자기 차례에 주사위를 굴리는 대신,\n획득한 <RedText>알 카드로 주사위의 눈을 대체</RedText>할 수 있습니다.\n\n한 차례에 카드 1장만 사용 가능하며\n두번째나 세번째의 주사위로만 대체할 수 있습니다.', // content
+            '자기 차례에 주사위를 굴리는 대신,\n획득한 <RedText>알 카드로 주사위의 눈을 대체</RedText>할 수 있습니다.\n\n한 차례에 카드 1장만 사용할 수 있으며\n두 번째나 세 번째의 주사위로만 대체할 수 있습니다.', // content
             null, // additional information
             [ // 버튼 내용
                 [30, '계속 보기'],
@@ -312,7 +312,7 @@ function ID33({bgmIsPlaying, setBackgroundImage, setBgmIsPlaying}) {
         [ // 30
             'TitleAndContenAndTwoButtonComponent', // 템플릿
             '베리언트', // title
-            '이 경우에도 주사위의 눈과 알 카드 점수의 합은\n7을 초과해선 안됩니다.\n\n사용된 알 카드는 버려지고, 게임에 다시 사용되지 않으며\n게임이 끝났을 때 점수로 사용할 수 없습니다.', // content
+            '이 경우에도 주사위의 눈과 알 카드 점수의 합은\n7을 초과해선 안 됩니다.\n\n사용된 알 카드는 버려지고, 게임에 다시 사용되지 않으며\n게임이 끝났을 때 점수로 사용할 수 없습니다.', // content
             null, // additional information
             [ // 버튼 내용
                 [31, '계속 보기'],
@@ -334,7 +334,7 @@ function ID33({bgmIsPlaying, setBackgroundImage, setBgmIsPlaying}) {
         [ // 32
             'TitleAndContentAndOneButtonComponent', // 템플릿
             '살짝 아쉽군요.', // 타이틀 내용
-            '<RedText>주사위 합 x 2</RedText>만큼 전진해주세요!', // content
+            '<RedText>주사위 합 x 2</RedText>만큼 전진해 주세요!', // content
             17, '확인했어요.',
             11 // 이전 페이지 flow 번호
         ],

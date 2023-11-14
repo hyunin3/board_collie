@@ -26,6 +26,8 @@ const ModalContent = styled.div`
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
+  font-family: 'Jua', sans-serif;
+  letter-spacing: 0.05em;
 `;
 
 const ModalLogo = styled.div`
@@ -95,8 +97,8 @@ const SearchBar: React.FC<Props> = ({ onSearch, searchType, setSearchType, style
           opacity: 0,
         }}
       />
-      <Grid item xs={2}>
-        <FormControl variant="outlined">
+      <Grid item xs={1}>
+        <FormControl variant="outlined" style={{ backgroundColor: 'white' }}>
           <Select
             value={searchType}
             onChange={handleSearchTypeChange}
@@ -107,7 +109,7 @@ const SearchBar: React.FC<Props> = ({ onSearch, searchType, setSearchType, style
           </Select>
         </FormControl>
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={4} >
         <TextField
           fullWidth
           variant="outlined"
@@ -167,8 +169,8 @@ const SearchBar: React.FC<Props> = ({ onSearch, searchType, setSearchType, style
           <ModalLogo />
           <h2>이용을 종료하시겠습니까?</h2>
           <ButtonWrapper>
-            <Button onClick={endGame}>예</Button>
-            <Button onClick={closeModal}>아니오</Button>
+            <Button onClick={endGame} sx={{fontFamily: 'Jua, sans-serif', fontSize: '1.3rem'}}>예</Button>
+            <Button onClick={closeModal}sx={{fontFamily: 'Jua, sans-serif', fontSize: '1.3rem'}}>아니오</Button>   
           </ButtonWrapper>
         </ModalContent>
       </Modal>

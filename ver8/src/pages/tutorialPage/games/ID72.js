@@ -59,7 +59,7 @@ function ID72({players, setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
             ],
             [
                 setting2, // 2번 세팅 이미지
-                '각 단계별 개발 카드를 4장씩 펼쳐 놓아주세요.' // 2번 세팅 설명
+                '단계별 개발 카드를 4장씩 펼쳐 놓아주세요.' // 2번 세팅 설명
             ],
             [
                 setting3_2, // 3번 세팅 이미지
@@ -77,7 +77,7 @@ function ID72({players, setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
             ],
             [
                 setting2, // 2번 세팅 이미지
-                '각 단계별 개발 카드를 4장씩 펼쳐 놓아주세요.' // 2번 세팅 설명
+                '단계별 개발 카드를 4장씩 펼쳐 놓아주세요.' // 2번 세팅 설명
             ],
             [
                 setting3_3, // 3번 세팅 이미지
@@ -95,7 +95,7 @@ function ID72({players, setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
             ],
             [
                 setting2, // 2번 세팅 이미지
-                '각 단계별 개발 카드를 4장씩 펼쳐 놓아주세요.' // 2번 세팅 설명
+                '단계별 개발 카드를 4장씩 펼쳐 놓아주세요.' // 2번 세팅 설명
             ],
             [
                 setting3_4, // 3번 세팅 이미지
@@ -142,7 +142,7 @@ function ID72({players, setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
         ],
         [ // 2: 튜토리얼 시작 페이지
             'TitleComponent', // 템플릿
-            '모든 준비가 완료되었습니다!\n이제부터 게임을 시작해봅시다.', // 타이틀 내용
+            '모든 준비가 완료되었습니다!\n이제부터 게임을 시작해 봅시다.', // 타이틀 내용
             1, // 이전 페이지 flow 번호
             20 // 다음 페이지 flow 번호
         ],
@@ -172,7 +172,7 @@ function ID72({players, setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
         [ // 5: 선택 액션 설명
             'TitleAndContenAndTwoButtonComponent', // 템플릿
             '같은 색깔의 토큰을\n2개 가져가시겠습니까?', // title
-            '가져가려는 토큰이 <RedText>4개 이상</RedText>일때만\n같은 색깔의 토큰을 2개 가져갈 수 있습니다.\n\n토큰은 10개까지만 가지고 있을 수 있습니다.\n원하는 토큰을 남기고 나머지는 버려주세요.', // content
+            '가져가려는 토큰이 <RedText>4개 이상</RedText>일 때만\n같은 색깔의 토큰을 2개 가져갈 수 있습니다.\n\n토큰은 10개까지만 가지고 있을 수 있습니다.\n원하는 토큰을 남기고 나머지는 버려주세요.', // content
             null, // additional information
             [ // 버튼 내용
                 [9, '예, 가져갈래요.'],
@@ -183,7 +183,7 @@ function ID72({players, setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
         [ // 6: 선택 액션 설명
             'TitleAndContenAndTwoButtonComponent', // 템플릿
             '개발 카드를 찜하시겠습니까?', // title
-            '테이블에 펼쳐진 개발 카드나\n개발 카드 더미의 맨 위 카드 1장을 골라 손에 듭니다!\n이때 황금 조커 토큰을 하나 가져오세요.\n손에는 <RedText>3장까지만</RedText> 들 수 있습니다.\n\n빈 자리에 같은 단계의 카드를 새로 펼쳐주세요.', // content
+            '테이블에 펼쳐진 개발 카드나\n개발 카드 더미의 맨 위 카드 1장을 골라 손에 듭니다!\n이때 황금 조커 토큰을 하나 가져오세요.\n손에는 <RedText>3장까지만</RedText> 들 수 있습니다.\n\n빈자리에 같은 단계의 카드를 새로 펼쳐주세요.', // content
             [ // additional information
                 '💎 황금 조커 토큰은 다른 보석 토큰을 대체해 사용할 수 있습니다.',
                 '💎 찜할 카드의 내용을 다른 플레이어에게 보여주지 않아도 됩니다.',
@@ -192,7 +192,7 @@ function ID72({players, setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
                 '💎 찜한 카드를 전부 구매할 필요는 없습니다.',
             ],
             [ // 버튼 내용
-                [9, '예, 찜 할래요.'],
+                [9, '예, 찜할래요.'],
                 [3, '다른 액션 선택할래요.']
             ],
             3 // 이전 페이지 flow 번호
@@ -200,7 +200,7 @@ function ID72({players, setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
         [ // 7: 선택 액션 설명
             'TitleAndContenAndTwoButtonComponent', // 템플릿
             '개발 카드 1장을 구매하시겠습니까?', // title
-            '카드에 표시된 만큼의 토큰을 내야하고,\n<RedText>가지고 있는 보너스만큼 할인</RedText> 받을 수 있습니다.\n\n사용한 토큰은 돌려 놓습니다.\n\n빈 자리에 같은 단계의 카드를 새로 펼쳐주세요.', // content
+            '카드에 표시된 만큼의 토큰을 내야하고,\n<RedText>가지고 있는 보너스만큼 할인</RedText>받을 수 있습니다.\n\n사용한 토큰은 돌려놓습니다.\n\n빈자리에 같은 단계의 카드를 새로 펼쳐주세요.', // content
             [ // additional information
                 '💎 황금 조커 토큰은 어떤 색깔의 토큰이든 대체할 수 있습니다.',
                 '💎 테이블에 펼쳐진 개발 카드나 찜한 개발 카드 중 하나를 구매할 수 있습니다.',
@@ -215,7 +215,7 @@ function ID72({players, setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
         ],
         [ // 8:  액션 선택 이후 정보 전달
             'TitleAndImageAndContentAndOneButtonComponent', // 템플릿
-            '개발 카드를 구매했다면 확인해주세요!', // title
+            '개발 카드를 구매했다면 확인해 주세요!', // title
             contentImg1, // image
             '귀족 타일에 표시된 만큼의 카드를 보유하고 있다면\n<RedText>귀족 타일 획득</RedText> 가능합니다.\n\n귀족 카드는 <RedText>한 차례에 하나만</RedText> 얻을 수 있습니다.', // content
             9, '확인했어요.', // 버튼 내용
@@ -258,7 +258,7 @@ function ID72({players, setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
         [ // 12: 선택 액션 설명
             'TitleAndContenAndTwoButtonComponent', // 템플릿
             '같은 색깔의 토큰을\n2개 가져가시겠습니까?', // title
-            '가져가려는 토큰이 <RedText>4개 이상</RedText>일때만\n같은 색깔의 토큰을 2개 가져갈 수 있습니다.\n\n토큰은 10개까지만 가지고 있을 수 있습니다.\n원하는 토큰을 남기고 나머지는 버려주세요.', // content
+            '가져가려는 토큰이 <RedText>4개 이상</RedText>일 때만\n같은 색깔의 토큰을 2개 가져갈 수 있습니다.\n\n토큰은 10개까지만 가지고 있을 수 있습니다.\n원하는 토큰을 남기고 나머지는 버려주세요.', // content
             null, // additional information
             [ // 버튼 내용
                 [10, '다른 액션 설명도 보기'],
@@ -269,7 +269,7 @@ function ID72({players, setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
         [ // 13: 선택 액션 설명
             'TitleAndContenAndTwoButtonComponent', // 템플릿
             '개발 카드를 찜하시겠습니까?', // title
-            '테이블에 펼쳐진 개발 카드나\n개발 카드 더미의 맨 위 카드 1장을 골라 손에 듭니다!\n이때 황금 조커 토큰을 하나 가져오세요.\n손에는 <RedText>3장까지만</RedText> 들 수 있습니다.\n\n빈 자리에 같은 단계의 카드를 새로 펼쳐주세요.', // content
+            '테이블에 펼쳐진 개발 카드나\n개발 카드 더미의 맨 위 카드 1장을 골라 손에 듭니다!\n이때 황금 조커 토큰을 하나 가져오세요.\n손에는 <RedText>3장까지만</RedText> 들 수 있습니다.\n\n빈자리에 같은 단계의 카드를 새로 펼쳐주세요.', // content
             [ // additional information
                 '💎 황금 조커 토큰은 다른 보석 토큰을 대체해 사용할 수 있습니다.',
                 '💎 찜할 카드의 내용을 다른 플레이어에게 보여주지 않아도 됩니다.',
@@ -286,7 +286,7 @@ function ID72({players, setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
         [ // 14: 선택 액션 설명
             'TitleAndContenAndTwoButtonComponent', // 템플릿
             '개발 카드 1장을 구매하시겠습니까?', // title
-            '카드에 표시된 만큼의 토큰을 내야하고,\n<RedText>가지고 있는 보너스만큼 할인</RedText> 받을 수 있습니다.\n\n사용한 토큰은 돌려 놓습니다.\n\n빈 자리에 같은 단계의 카드를 새로 펼쳐주세요.', // content
+            '카드에 표시된 만큼의 토큰을 내야하고,\n<RedText>가지고 있는 보너스만큼 할인</RedText>받을 수 있습니다.\n\n사용한 토큰은 돌려놓습니다.\n\n빈자리에 같은 단계의 카드를 새로 펼쳐주세요.', // content
             [ // additional information
                 '💎 황금 조커 토큰은 어떤 색깔의 토큰이든 대체할 수 있습니다.',
                 '💎 테이블에 펼쳐진 개발 카드나 찜한 개발 카드 중 하나를 구매할 수 있습니다.',
@@ -301,7 +301,7 @@ function ID72({players, setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
         ],
         [ // 15: 한 턴 끝
             'TitleComponent', // 템플릿
-            '잘 하셨습니다!\n이런 방식으로 계속 턴이 진행됩니다!', // 타이틀 내용
+            '잘하셨습니다!\n이런 방식으로 계속 턴이 진행됩니다!', // 타이틀 내용
             9, // 이전 페이지 flow 번호
             16 // 다음 페이지 flow 번호
         ],
@@ -321,19 +321,19 @@ function ID72({players, setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
         ],
         [ // 18: 인트로(1)
             'TitleComponent', // 템플릿
-            '<TypeIt>스플렌더에서 플레이어들은<br/>르네상스 시기의<br/>👳‍♀️부유한 상인👳‍♂️<br/>역할을 맡습니다.</TypeIt>', // 타이틀 내용
+            '<TypeIt>스플렌더에서 플레이어들은<br/>르네상스 시기의<br/>부유한 상인<br/>역할을 맡습니다.</TypeIt>', // 타이틀 내용
             0, // 이전 페이지 flow 번호
             19 // 다음 페이지 flow 번호
         ],
         [ // 19: 인트로(2)
             'TitleComponent', // 템플릿
-            '<TypeIt>플레이어는<br/>자신의 자원을 사용하여<br/>광산이나 교통 수단을 얻고,<br/>당신의 원석을 아름다운 보석으로 바꿔줄<br/>장인을 고용할 수 있습니다.</TypeIt>', // 타이틀 내용
+            '<TypeIt>플레이어는<br/>자신의 자원을 사용하여<br/>광산이나 교통수단을 얻고,<br/>당신의 원석을 아름다운 보석으로 바꿔줄<br/>장인을 고용할 수 있습니다.</TypeIt>', // 타이틀 내용
             18, // 이전 페이지 flow 번호
             1 // 다음 페이지 flow 번호
         ],
         [ // 20: 개요(1)
             'TitleComponent', // 템플릿
-            '<TypeIt>한 플레이어가<br/>🏆승점 15점 이상🏆<br/>모으면 승리합니다!</TypeIt>', // 타이틀 내용
+            '<TypeIt>한 플레이어가<br/>승점 15점 이상<br/>모으면 승리합니다!</TypeIt>', // 타이틀 내용
             2, // 이전 페이지 flow 번호
             21 // 다음 페이지 flow 번호
         ],
@@ -347,7 +347,7 @@ function ID72({players, setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
         [ // 22: 개요(3)
             'ImageAndContentComponent', // 템플릿
             summary2, // image
-            '<TypeIt>보너스를 충분히 확보한 순간<br/>귀족👸이 방문합니다!<br/><br/>귀족은 승점을 제공합니다.</TypeIt>', // content
+            '<TypeIt>보너스를 충분히 확보한 순간<br/>귀족이 방문합니다!<br/><br/>귀족은 승점을 제공합니다.</TypeIt>', // content
             21, // 이전 페이지 flow 번호
             23 // 다음 페이지 flow 번호
         ],
@@ -360,20 +360,20 @@ function ID72({players, setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
         ],
         [ // 24: 15점이 되었을 때
             'TitleComponent', // 템플릿
-            '모든 플레이어가\n같은 횟수의 액션을 수행할 수 있게\n차례를 마저 진행해주세요.', // 타이틀 내용
+            '모든 플레이어가\n같은 횟수의 액션을 수행할 수 있게\n차례를 마저 진행해 주세요.', // 타이틀 내용
             16, // 이전 페이지 flow 번호
             25 // 다음 페이지 flow 번호
         ],
         [ // 25
             'TitleComponent', // 템플릿
-            '모두 자신의 점수를 합산해주세요.\n\n🎯귀족 승점🎯을 잊지마세요!', // 타이틀 내용
+            '모두 자신의 점수를 합산해 주세요.\n\n귀족 승점을 잊지 마세요!', // 타이틀 내용
             24, // 이전 페이지 flow 번호
             26 // 다음 페이지 flow 번호
         ],
         [ // 26
             'TutorialEndComponent', // 템플릿
             title, // image
-            '승점이 가장 높은 플레이어가 🎉승자🎉입니다!', // content
+            '승점이 가장 높은 플레이어가 승자입니다!', // content
             [
                 '🎉 동점일 경우 귀족 타일을 제외한 카드를 더 적게 가지고 있는 분이 승리합니다.',
                 '🎉 그것도 같다면, 귀족 타일을 더 많이 가지고 있는 분이 승리합니다.',

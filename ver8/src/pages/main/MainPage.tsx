@@ -2,8 +2,9 @@ import React from 'react';
 import recommendLogo from '../../assets/recommendLogo.png';
 import searchLogo from '../../assets/searchLogo.png';
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
+import {Paper, Typography} from '@mui/material';
 import { Link } from 'react-router-dom';
+import './MainPage.css';
 
 const MainPage: React.FC = () => {
   const boxStyle: React.CSSProperties = {
@@ -35,16 +36,29 @@ const MainPage: React.FC = () => {
         <Grid item>
           <Link to="/gamerecommend" style={{ textDecoration: 'none', color: 'inherit' }}>
             <Paper elevation={3} style={boxStyle}>
-              게임 추천받기
-              <img src={recommendLogo} alt="Recommend Game Logo" style={logoStyle} />
+            <Typography  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Jua, sans-serif', fontSize: '2.5rem',}}>
+              {Array.from('게임 추천받기').map((char, index) => (
+              <span key={index} style={{ '--i': index } as React.CSSProperties} className="animated-letter">
+                {char}
+              </span>
+                ))}
+            </Typography>
+
+              <img src={recommendLogo} alt="Recommend Game Logo" style={logoStyle} className="logo-animate"/>
             </Paper>
           </Link>
         </Grid>
         <Grid item>
           <Link to="/searchresult" style={{ textDecoration: 'none', color: 'inherit' }}>
             <Paper elevation={3} style={boxStyle}>
-              게임 검색하기
-              <img src={searchLogo} alt="Search Game Logo" style={logoStyle} />
+            <Typography  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Jua, sans-serif', fontSize: '2.5rem',}}>
+              {Array.from('게임 검색하기').map((char, index) => (
+              <span key={index} style={{ '--i': index } as React.CSSProperties} className="animated-letter">
+                {char}
+              </span>
+                ))}
+            </Typography>
+              <img src={searchLogo} alt="Search Game Logo" style={logoStyle} className="logo-animate"/>
             </Paper>
           </Link>
         </Grid>

@@ -49,7 +49,7 @@ function ID27({setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
     const setting = [
         [ // 0
             setting1,
-            '타일을 잘 섞어 중앙에 뒤집어줍니다.'
+            '타일을 잘 섞어 중앙에 뒤집어 줍니다.'
         ],
         [ // 1
             setting2,
@@ -128,7 +128,7 @@ function ID27({setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
         [ // 6
             'ImageAndContentComponent', // 템플릿
             contentImage5, // image
-            '<TypeIt>자신의 타일과 놓여진 타일들을<br/>마음대로 붙였다 뗐다<br/>조합할 수 있습니다.</TypeIt>', // content
+            '<TypeIt>자신의 타일과 놓인 타일들을<br/>마음대로 붙였다 뗐다<br/>조합할 수 있습니다.</TypeIt>', // content
             5, // 이전 페이지 flow 번호
             7 // 다음 페이지 flow 번호
         ],
@@ -142,13 +142,13 @@ function ID27({setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
         [ // 8
             'ImageAndContentComponent', // 템플릿
             contentImage7, // image
-            '<TypeIt>🌝조커🌝는<br/>아무 타일이나 대체할 수 있습니다.</TypeIt>', // content
+            '<TypeIt>조커는<br/>아무 타일이나 대체할 수 있습니다.</TypeIt>', // content
             7, // 이전 페이지 flow 번호
             9 // 다음 페이지 flow 번호
         ],
         [ // 9
             'TitleComponent', // 템플릿
-            '이제 게임을 시작해봅시다!', // 타이틀 내용
+            '이제 게임을 시작해 봅시다!', // 타이틀 내용
             8, // 이전 페이지 flow 번호
             10 // 다음 페이지 flow 번호
         ],
@@ -161,14 +161,14 @@ function ID27({setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
         [ // 11
             'ImageAndContentComponent', // 템플릿
             contentImage8, // image
-            '등록을 하기 위해서는\n타일의 총합이\n30 이상이어야 합니다.', // content
+            '등록하기 위해서는\n타일의 총합이\n30 이상이어야 합니다.', // content
             10, // 이전 페이지 flow 번호
             12 // 다음 페이지 flow 번호
         ],
         [ // 12
             'TitleAndContenAndTwoButtonComponent', // 템플릿
-            '등록을 시작해주세요!', // title
-            '제한 시간은 1분입니다.\n\n<RedText>등록을 할 때는</RedText>\n<RedText>중앙에 놓여진 타일들과 조합할 수 없다는 점</RedText>을\n유의해주세요.', // content
+            '등록을 시작해 주세요!', // title
+            '제한 시간은 1분입니다.\n\n<RedText>등록할 때는</RedText>\n<RedText>중앙에 놓인 타일들과 조합할 수 없다는 점</RedText>을\n유의해 주세요.', // content
             null, // additional information
             [ // 버튼 내용
                 [13, '등록을 완료했어요.'],
@@ -191,7 +191,7 @@ function ID27({setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
         ],
         [ // 15
             'TitleComponent', // 템플릿
-            '<TypeIt>등록이 완료되었다면<br/>타일을 모두 낼 수 있도록<br/>자유롭게 조합해보세요.</TypeIt>', // 타이틀 내용
+            '<TypeIt>등록이 완료되었다면<br/>타일을 모두 낼 수 있도록<br/>자유롭게 조합해 보세요.</TypeIt>', // 타이틀 내용
             13, // 이전 페이지 flow 번호
             16 // 다음 페이지 flow 번호
         ],
@@ -206,7 +206,7 @@ function ID27({setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
             '타일을 모두 낸 사람은\n<RedText>루미큐브!</RedText>를\n외쳐주세요.', // title
             [ // 버튼 내용
                 [18, '루미큐브!'],
-                [19, '질문있어요!'],
+                [19, '질문 있어요!'],
                 [20, '더 재밌게 플레이하기']
             ],
             16 // 이전 페이지 flow 번호
@@ -214,7 +214,7 @@ function ID27({setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
         [ // 18
             'TutorialEndComponent', // 템플릿
             title, // image
-            '가장 먼저 루미큐브를 외친 플레이어가\n🎉승자🎉입니다!', // content
+            '가장 먼저 루미큐브를 외친 플레이어가\n승자입니다!', // content
             null, // additional information
             17 // 이전 페이지 flow 번호
         ],
@@ -227,23 +227,23 @@ function ID27({setBackgroundImage, bgmIsPlaying, setBgmIsPlaying}) {
             'TitleAndThreeButtonComponent', // 템플릿
             '몰라도 되지만\n게임을 더욱 재밌게 할 수 있는\n룰을 알려드립니다.', // title
             [ // 버튼 내용
-                [21, '중앙 타일을 원래대로 못돌리겠어요.'],
+                [21, '중앙 타일을 원래대로 못 돌리겠어요.'],
                 [22, '순위를 정하고 싶어요.'],
-                [17, '그만보기']
+                [17, '그만 보기']
             ],
             17 // 이전 페이지 flow 번호
         ],
         [ // 21
             'TitleAndContentAndOneButtonComponent', // 템플릿
-            '중앙 타일을 원래대로 못돌리겠어요.', // 타이틀 내용
-            '1분 안에 조합을 완성하지 못했다면\n즉시 멈추고 이전의 상태로 돌려 놓아야 하며\n<RedText>벌칙으로 타일 3개</RedText>를 가져가야 합니다.\n\n만약 원위치 시키지 못한 타일이 있다면\n중앙에 뒤집어 섞어 놓고\n그 개수만큼 타일을 가져갑니다.', // content
+            '중앙 타일을 원래대로 못 돌리겠어요.', // 타이틀 내용
+            '1분 안에 조합을 완성하지 못했다면\n즉시 멈추고 이전의 상태로 돌려놓아야 하며\n<RedText>벌칙으로 타일 3개</RedText>를 가져가야 합니다.\n\n만약 원위치시키지 못한 타일이 있다면\n중앙에 뒤집어 섞어 놓고\n그 개수만큼 타일을 가져갑니다.', // content
             20, '다른 룰 보기',
             20 // 이전 페이지 flow 번호
         ],
         [ // 22
             'TitleAndContentAndOneButtonComponent', // 템플릿
             '순위를 정하고 싶어요.', // 타이틀 내용
-            '모든 타일을 내리고 <RedText>루미큐브!</RedText>를 외치면 <RedText>1등</RedText>이 됩니다.\n\n나머지 사람들은 남은 타일의 숫자를 더한만큼\n<RedText>벌점</RedText>을 받게 됩니다.\n(조커는 벌점 50점입니다.)\n\n<RedText>벌점이 낮은 순</RedText>으로 순위를 매기면 됩니다.', // content
+            '모든 타일을 내리고 <RedText>루미큐브!</RedText>를 외치면 <RedText>1등</RedText>이 됩니다.\n\n나머지 사람들은 남은 타일의 숫자를 더한 만큼\n<RedText>벌점</RedText>을 받게 됩니다.\n(조커는 벌점 50점입니다.)\n\n<RedText>벌점이 낮은 순</RedText>으로 순위를 매기면 됩니다.', // content
             20, '다른 룰 보기',
             20 // 이전 페이지 flow 번호
         ],

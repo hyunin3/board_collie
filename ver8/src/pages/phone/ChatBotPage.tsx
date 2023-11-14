@@ -23,6 +23,10 @@ import { fetchGameDetail, Game } from '../../apis/gamedetail/GameDetailAPI';
  *
  * @author 허주혁
  * @todo 
+ * 2. 0번 시 이름이 안 뜨는 버그 발생
+ * 3. 입력창 위치 고정
+ * 4. 핸드폰 마이크를 통한 음성인식
+ * 5. tts
  */
 
 const SERVER_API_URL = `${process.env.REACT_APP_API_SERVER_URL}`;
@@ -141,6 +145,7 @@ const MessageList = styled.div`
   padding: 10px;
   overflow-y: auto;
   flex: 1;
+  padding-bottom: 70px; // 입력 필드 높이 + 여백을 고려하여 설정
 `;
 
 // 입력 영역
@@ -152,6 +157,12 @@ const InputArea = styled.div`
   background-color: #ffffff; // 내부 배경색 하얀색
   padding: 5px; // 패딩으로 내부 여백을 조금 줌
   margin: 10px; // 주변 여백 추가
+
+  position: fixed; // 위치 고정
+  bottom: 0; // 화면 하단에 위치
+  left: 0; // 화면 왼쪽에 위치
+  width: calc(100% - 20px); // 너비를 화면 크기에 맞춤
+  box-sizing: border-box; // padding과 border가 width에 포함되도록 설정
 `;
 
 // 입력 필드
@@ -277,7 +288,7 @@ const ChatBotPage: React.FC = () => {
       }
     };
 
-    if (gameId) {
+    if (gameId || gameId === 0) {
       loadGameDetail();
     }
   }, [gameId]);
@@ -393,14 +404,6 @@ const ChatBotPage: React.FC = () => {
     
     fetchUUID();
   }, []);
-
-  // // UUID 사용 예시
-  // useEffect(() => {
-  //   if (uuid) {
-  //     console.log(`UUID: ${uuid}`);
-  //     console.log(gameId);
-  //   }
-  // }, [uuid]);
 
   return (
     <ChatRoomContainer>

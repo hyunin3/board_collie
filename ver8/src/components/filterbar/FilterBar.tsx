@@ -101,16 +101,18 @@ const FilterBar: React.FC<FilterBarProps> = ({ numberOfPlayers, setNumberOfPlaye
         </div>
       </AccordionSummary>
       <AccordionDetails>
-      {newTagList.map(tag => (
-            <Chip 
-              key={tag} 
-              label={tag} 
-              onClick={() => handleTagClick(tag)} 
-              style={{ margin: '4px' }}
-              variant={tagFilter === tag ? 'filled' : 'outlined'}
-            />
-          ))}
-      </AccordionDetails>
+  <div style={{ display: 'flex', justifyContent: 'flex-start', marginLeft: '195px' }}>
+    {newTagList.map(tag => (
+      <Chip 
+        key={tag} 
+        label={tag} 
+        onClick={() => handleTagClick(tag)} 
+        style={{ margin: '4px' }}
+        variant={tagFilter === tag ? 'filled' : 'outlined'}
+      />
+    ))}
+  </div>
+</AccordionDetails>
     </FilterBarContainer>
   );
 };

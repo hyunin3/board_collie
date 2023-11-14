@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from 'react-router-dom';
 // import axios from 'axios';
 
-
 // images
 import chatIcon from '../../assets/chat_icon.png';
 
@@ -28,6 +27,7 @@ import ChatBubble from '../../components/chatbubble/ChatBubble';
  * 1. 애니메이션 간의 time delay 조절 문제 (속도 조절이 안 됨)
  * 2. 버튼이 선택되면 배경색이 바뀌는데, 문제는 이게 문제마다 다시 원래 색으로 초기화가 되어야하는데, 계속 바뀐 색이 다음 질문에서도 유지되는 경우
  * 3. 뒤로가기 버튼을 눌렀을 때, 그대로 선택된 버튼을 버튼이 눌려 색깔이 변경된 처리를 해주고, 다른 선택지를 고르면 그 index로 교체가 되도록 코드 수정
+ * 4. tts
  */
 
 const Padding = styled.div`
@@ -91,10 +91,6 @@ const SingleButton = styled.button`
   border: none;
   border-radius: 20px;
   cursor: pointer;
-
-  &:hover {
-    background-color: #90B299;
-  }
 `;
 
 // 아이콘을 담을 컨테이너
@@ -149,8 +145,8 @@ type ButtonContents = {
   [key: number]: string[];
 };
 
-const GameRecommendPage: React.FC = () => {
-  const [selectedButtons, setSelectedButtons] = useState<number[]>([]);
+const GameRecommendPage: React.FC<{ players: number }> = ({ players }) => {
+  const [selectedButtons, setSelectedButtons] = useState<number[]>([players]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [handleButtonClicked, setHandleButtonClicked] = useState(false);
   const [animateButtonsIn, setAnimateButtonsIn] = useState(true);
@@ -159,13 +155,15 @@ const GameRecommendPage: React.FC = () => {
   useEffect(() => {
     console.log("선택된 버튼 배열: ", selectedButtons);
   }, [selectedButtons]);
-
+  
   // 질문 페이지가 아닌 경우에 자동으로 다음 페이지로 넘어가는 기능
   useEffect(() => {
     if ([0, 3, 7].includes(currentQuestion)) {
+      const delay = currentQuestion === 0 ? 3000 : 2500;
+
       const timer = setTimeout(() => {
         handleClick();
-      }, 9000);
+      }, delay);
 
       return () => clearTimeout(timer);
     }
@@ -186,7 +184,7 @@ const GameRecommendPage: React.FC = () => {
 
   // 버튼 내용을 저장하는 상태
   const buttonContents: ButtonContents = {
-    1: ['플레이 타임이 길어도 상관 없어요! (1시간 이상)', '플레이 타임은 짧았으면 좋겠어요! (1시간 미만)', '상관 없음'],
+    1: ['플레이 타임이 길어도 상관 없어요!', '플레이 타임은 짧았으면 좋겠어요!', '상관 없음'],
     2: ['어려움', '보통', '쉬움'],
     4: ['경쟁', '협동', '상관 없음'],
     5: ['전략', '운빨', '상관 없음'],
@@ -195,9 +193,6 @@ const GameRecommendPage: React.FC = () => {
 
   // 버튼 클릭(선택지 선택) 시 동작
   const handleClick = (buttonNumber?: number) => {
-    console.log(currentQuestion);
-    console.log(handleButtonClicked);
-
     setHandleButtonClicked(true);
 
     // 버튼이 아래로 내려가는 애니메이션
@@ -214,7 +209,7 @@ const GameRecommendPage: React.FC = () => {
 
       // 버튼을 올라오게 하는 애니메이션
       setAnimateButtonsIn(true);
-    }, 1000);
+    }, 800);
   };
 
   // 상태 업데이트를 감지하여 chatMessage 업데이트
@@ -276,7 +271,6 @@ const GameRecommendPage: React.FC = () => {
     }, 1000);
   };
   
-
   // 질문 페이지만 계산하여 페이지 번호를 표시하는 기능
   const getDisplayPageNumber = () => {
     const questionPages = [1, 2, 4, 5, 6]; // 질문 페이지들의 currentQuestion 값
@@ -292,7 +286,7 @@ const GameRecommendPage: React.FC = () => {
     // ZoomIn 애니메이션이 끝난 후
     const zoomInTimer = setTimeout(() => {
       setZoomInDone(true);
-    }, 1000); // ZoomIn 애니메이션의 길이
+    }, 800); // ZoomIn 애니메이션의 길이
     
     return () => clearTimeout(zoomInTimer);
   }, []);
@@ -302,7 +296,7 @@ const GameRecommendPage: React.FC = () => {
     if (zoomInDone) {
       const fadeInTimer = setTimeout(() => {
         setFadeInDone(true);
-      }, 1000); // FadeIn 애니메이션의 길이
+      }, 800); // FadeIn 애니메이션의 길이
 
       return () => clearTimeout(fadeInTimer);
     }
@@ -312,7 +306,7 @@ const GameRecommendPage: React.FC = () => {
     if (fadeInDone) {
       const starttypeTimer = setTimeout(() => {
         setStartType(true);
-      }, 1000); 
+      }, 800); 
 
       return () => clearTimeout(starttypeTimer);
     }
@@ -336,31 +330,14 @@ const GameRecommendPage: React.FC = () => {
   //   }
   // }, [fadeInDone, chatMessage, currentQuestion]);
 
-  // 마지막 페이지 도달 시 결과 페이지로 이동 & API 요청
+  // 마지막 페이지 도달 시 결과 페이지로 이동 & selectedButtons 리스트 전달
   const navigate = useNavigate();
 
   useEffect(() => {
     if (currentQuestion === 8) {
-      // API 요청을 보내는 함수
-      const postData = async () => {
-        try {
-          // const response = await axios.post('YOUR_API_ENDPOINT', {
-          //   selectedButtons,
-          // });
-
-          // console.log(response.data);
-
-          // 데이터를 성공적으로 전송한 후, 사용자를 다른 페이지로 리디렉션
-          navigate('/recommendresult');
-
-        } catch (error) {
-          console.error('There was an error!', error);
-        }
-      };
-
-      postData();
+      navigate('/recommendresult', { state: { selectedButtons } });
     }
-  }, [currentQuestion, history]);
+  }, [currentQuestion, navigate, selectedButtons]);
 
   return (
     <>
@@ -385,7 +362,7 @@ const GameRecommendPage: React.FC = () => {
                     1000,
                   ]
                 }
-                  speed={70}
+                  speed={80}
               />
             ) :
               <TypeAnimation
@@ -397,7 +374,7 @@ const GameRecommendPage: React.FC = () => {
                     1000,
                   ]
                 }
-                  speed={70}
+                  speed={80}
               />
             }
           </ChatBubble>
@@ -412,7 +389,6 @@ const GameRecommendPage: React.FC = () => {
                 key={index}
                 animateIn={animateButtonsIn}
                 index={index}
-                style={selectedButtons[currentQuestion] === index ? { backgroundColor: '#90B299' } : {}}
                 onClick={() => handleClick(index)}
               >
                 <IconContainer>

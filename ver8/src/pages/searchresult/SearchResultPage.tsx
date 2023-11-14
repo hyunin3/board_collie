@@ -81,23 +81,32 @@ const SearchResultsPage: React.FC = () => {
     handleSearch('');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const filterGamesByTag = (games: Game[], tagFilter: string | null): Game[] => {
+    if (!tagFilter) return games;
+    return games.filter(game => 
+      game.tags.some(tag => tag.name === tagFilter)
+    );
+  };
   
   const loadMore = () => {
     console.log("Load More is called");
-    if (visibleResults.length >= results.length) {
+    // 필터링된 결과를 기준으로 더 많은 데이터를 불러옵니다.
+    const filteredResults = filterGamesByTag(results, tagFilter);
+    if (visibleResults.length >= filteredResults.length) {
       setHasMore(false);
       return;
     }
-    const moreResults = results.slice(visibleResults.length, visibleResults.length + 10);
+    const moreResults = filteredResults.slice(visibleResults.length, visibleResults.length + 10);
     setVisibleResults(visibleResults.concat(moreResults));
   };
 
   useEffect(() => {
-    // 검색 결과가 바뀔 때마다 visibleResults를 리셋하고 무한 스크롤을 다시 활성화합니다.
-    setVisibleResults(results.slice(0, 10));
-    setHasMore(true);
-  }, [results]);
-
+    const filteredResults = filterGamesByTag(results, tagFilter);
+    setVisibleResults(filteredResults.slice(0, 10));
+    setHasMore(filteredResults.length > 10);
+  }, [tagFilter, results]);
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -184,7 +193,7 @@ const SearchResultsPage: React.FC = () => {
     />
 
     <Grid container spacing={2}>
-      <Grid item xs={9} style={{ overflowY: 'auto', maxHeight: '90vh', scrollbarWidth: 'none', msOverflowStyle: 'none' }} className="hide-scrollbar">
+      <Grid item xs={9} style={{ overflowY: 'auto', maxHeight: '80vh', scrollbarWidth: 'none', msOverflowStyle: 'none' }} className="hide-scrollbar">
         {results.length === 0 ? (
           <div style={centerStyle}>검색 결과가 없습니다.</div>
         ) : (

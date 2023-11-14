@@ -56,7 +56,7 @@ span:last-child {
 const SelectPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const validIds = [72, 27]; // 유효한 ID 목록
+  const validIds = [72, 27, 33]; // 유효한 ID 목록
   const gameName = sessionStorage.getItem(`gameName-${id}`) || '게임 이름';
 
   const goBack = () => {
