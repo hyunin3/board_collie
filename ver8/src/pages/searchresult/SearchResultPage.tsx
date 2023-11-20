@@ -64,6 +64,7 @@ const SearchResultsPage: React.FC = () => {
     setSelectedTagName(tagName);
     setSelectedTagDescription(tagDescription);
     setOpen(true);
+    // setQuery(tagName);
   };
   const modalStyle = {
     position: 'absolute' as 'absolute',
@@ -138,8 +139,10 @@ const SearchResultsPage: React.FC = () => {
     setQuery(query); // 입력받은 검색어를 state에 저장합니다.
   };
   const handleViewThemeGames = () => {
+    setQuery(selectedTagName);
     setSearchType('tag');
     setSearchTag(selectedTagName);
+    handleClose();
   };
 
   const centerStyle: React.CSSProperties = {
@@ -183,7 +186,7 @@ const SearchResultsPage: React.FC = () => {
 
   return (
     <div style={{ overflow: 'hidden', height: '100vh' }}>
-    <SearchBar onSearch={handleSearch} style={{ position: 'relative' }} searchType={searchType} setSearchType={setSearchType}/>
+    <SearchBar onSearch={handleSearch} style={{ position: 'relative' }} searchType={searchType} setSearchType={setSearchType} currentQuery={query}/>
     <FilterBar
       numberOfPlayers={numberOfPlayers}
       setNumberOfPlayers={setNumberOfPlayers}
@@ -264,13 +267,13 @@ const SearchResultsPage: React.FC = () => {
         aria-describedby="modal-description"
       >
         <Box sx={modalStyle}>
-          <Typography id="modal-title" variant="h6">
+          <Typography id="modal-title" variant="h5" style={{ fontFamily: 'Jua, sans-serif' }}>
             {selectedTagName}
           </Typography>
           <Typography id="modal-description" sx={{ mt: 2 }}>
             {selectedTagDescription}
           </Typography>
-          <Button onClick={handleViewThemeGames}>해당 테마 게임 모아보기</Button>
+          <Button onClick={handleViewThemeGames} sx={{ marginLeft: '-7px' }}>해당 테마 게임 모아보기</Button>
         </Box>
       </Modal>
   </div>

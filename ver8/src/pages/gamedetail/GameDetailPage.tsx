@@ -301,13 +301,13 @@ const GameDetailPage: React.FC = () => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2" sx={{ fontSize: '1.5rem' }} >
+          <Typography id="modal-modal-title" variant="h5" component="h2" sx={{ fontSize: '1.5rem', fontFamily: 'Jua, sans-serif' }}  >
            {selectedTagName}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2, fontSize: '1.1rem' }} >
             {selectedTagDescription}
           </Typography>
-          <Button onClick={handleViewThemeGames}>해당 테마 게임 모아보기</Button>
+          <Button onClick={handleViewThemeGames} sx={{ marginLeft: '-7px' }}>해당 테마 게임 모아보기</Button>
         </Box>
       </Modal>
       </Box>
